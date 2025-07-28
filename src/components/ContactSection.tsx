@@ -43,7 +43,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">Phone</p>
-                  <p className="text-muted-foreground">0800 123 4567</p>
+                  <p className="text-muted-foreground">+44 7365 343449</p>
                 </div>
               </div>
 

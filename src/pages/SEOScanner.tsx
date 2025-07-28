@@ -75,23 +75,30 @@ const SEOScanner = () => {
             </p>
 
             <div className="max-w-lg mx-auto">
-              <div className="flex gap-4 mb-6">
+              <form onSubmit={(e) => { e.preventDefault(); handleScan(); }} className="space-y-4">
                 <Input 
                   type="url"
                   placeholder="https://yourwebsite.co.uk"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
-                  className="flex-1 text-lg"
+                  className="text-lg"
+                  required
+                />
+                <Input 
+                  type="email"
+                  placeholder="Your email for the report"
+                  className="text-lg"
+                  required
                 />
                 <Button 
+                  type="submit"
                   variant="cta" 
-                  onClick={handleScan}
                   disabled={!url || isScanning}
-                  className="px-8"
+                  className="w-full"
                 >
                   {isScanning ? "Scanning..." : "Scan Now"}
                 </Button>
-              </div>
+              </form>
               
               <p className="text-sm text-muted-foreground">
                 ✓ Completely free • ✓ No signup required • ✓ Instant results
