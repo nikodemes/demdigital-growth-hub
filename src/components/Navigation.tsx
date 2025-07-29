@@ -24,9 +24,11 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-foreground">
-              <span className="text-primary">DEM</span> Digital
-            </h1>
+            <img 
+              src="/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png" 
+              alt="DEM Digital Logo" 
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
