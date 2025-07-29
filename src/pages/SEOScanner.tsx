@@ -30,10 +30,13 @@ const SEOScanner = () => {
         throw new Error(error.message || 'Failed to scan website');
       }
       
-      // The data is already in the expected format from the edge function
+      // The data is now in enhanced format from the edge function
       const transformedResults = {
         score: data.score || 0,
         issues: data.issues || [],
+        performance: data.performance || {},
+        technical: data.technical || {},
+        content: data.content || {},
         metrics: {
           first_contentful_paint: data.performance?.fcp || 'N/A',
           speed_index: data.performance?.speed || 'N/A', 
@@ -160,25 +163,90 @@ const SEOScanner = () => {
                 Here's your website's performance analysis and recommendations for improvement
               </p>
               
-              {/* Performance Metrics */}
+              {/* Core Scores */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                 <div className="bg-white rounded-lg p-4 shadow-card">
+                  <h3 className="text-sm font-medium text-muted-foreground">Performance</h3>
+                  <p className="text-lg font-bold text-foreground">{results.performance?.performanceScore || 'N/A'}</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow-card">
+                  <h3 className="text-sm font-medium text-muted-foreground">Accessibility</h3>
+                  <p className="text-lg font-bold text-foreground">{results.performance?.accessibility || 'N/A'}</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow-card">
+                  <h3 className="text-sm font-medium text-muted-foreground">Best Practices</h3>
+                  <p className="text-lg font-bold text-foreground">{results.performance?.bestPractices || 'N/A'}</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow-card">
                   <h3 className="text-sm font-medium text-muted-foreground">First Contentful Paint</h3>
-                  <p className="text-lg font-bold text-foreground">{results.metrics.first_contentful_paint || 'N/A'}</p>
-                </div>
-                <div className="bg-white rounded-lg p-4 shadow-card">
-                  <h3 className="text-sm font-medium text-muted-foreground">Speed Index</h3>
-                  <p className="text-lg font-bold text-foreground">{results.metrics.speed_index || 'N/A'}</p>
-                </div>
-                <div className="bg-white rounded-lg p-4 shadow-card">
-                  <h3 className="text-sm font-medium text-muted-foreground">Time to Interactive</h3>
-                  <p className="text-lg font-bold text-foreground">{results.metrics.time_to_interactive || 'N/A'}</p>
-                </div>
-                <div className="bg-white rounded-lg p-4 shadow-card">
-                  <h3 className="text-sm font-medium text-muted-foreground">Total Blocking Time</h3>
-                  <p className="text-lg font-bold text-foreground">{results.metrics.total_blocking_time || 'N/A'}</p>
+                  <p className="text-lg font-bold text-foreground">{results.performance?.fcp || 'N/A'}</p>
                 </div>
               </div>
+
+              {/* Core Web Vitals */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 shadow-card">
+                  <h3 className="text-sm font-medium text-blue-700">Largest Contentful Paint</h3>
+                  <p className="text-lg font-bold text-blue-900">{results.performance?.lcp || 'N/A'}</p>
+                  <p className="text-xs text-blue-600">Should be under 2.5s</p>
+                </div>
+                <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-4 shadow-card">
+                  <h3 className="text-sm font-medium text-green-700">Cumulative Layout Shift</h3>
+                  <p className="text-lg font-bold text-green-900">{results.performance?.cls || 'N/A'}</p>
+                  <p className="text-xs text-green-600">Should be under 0.1</p>
+                </div>
+                <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-4 shadow-card">
+                  <h3 className="text-sm font-medium text-purple-700">Speed Index</h3>
+                  <p className="text-lg font-bold text-purple-900">{results.performance?.speed || 'N/A'}</p>
+                  <p className="text-xs text-purple-600">Lower is better</p>
+                </div>
+              </div>
+
+              {/* Technical & Content Analysis */}
+              {results.technical && (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                  <div className="bg-white rounded-lg p-4 shadow-card">
+                    <h3 className="text-sm font-medium text-muted-foreground">Word Count</h3>
+                    <p className="text-lg font-bold text-foreground">{results.content?.wordCount || 0}</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 shadow-card">
+                    <h3 className="text-sm font-medium text-muted-foreground">Internal Links</h3>
+                    <p className="text-lg font-bold text-foreground">{results.technical.internalLinks}</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 shadow-card">
+                    <h3 className="text-sm font-medium text-muted-foreground">External Links</h3>
+                    <p className="text-lg font-bold text-foreground">{results.technical.externalLinks}</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 shadow-card">
+                    <h3 className="text-sm font-medium text-muted-foreground">Total Images</h3>
+                    <p className="text-lg font-bold text-foreground">{results.technical.imageCount}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Content Quality Details */}
+              {results.content && (
+                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6 mt-6">
+                  <h4 className="text-lg font-semibold text-foreground mb-4">Content Analysis</h4>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-indigo-600">{results.content.titleLength}</div>
+                      <div className="text-sm text-muted-foreground">Title Length</div>
+                      <div className="text-xs text-gray-500">Optimal: 30-60 chars</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-purple-600">{results.content.metaDescLength}</div>
+                      <div className="text-sm text-muted-foreground">Meta Description</div>
+                      <div className="text-xs text-gray-500">Optimal: 120-160 chars</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-green-600">{results.content.h1Count}</div>
+                      <div className="text-sm text-muted-foreground">H1 Tags</div>
+                      <div className="text-xs text-gray-500">Optimal: 1 per page</div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
