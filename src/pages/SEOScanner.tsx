@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import TopBar from "@/components/TopBar";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { supabase } from "@/integrations/supabase/client";
 
 const SEOScanner = () => {
   const [url, setUrl] = useState("");
@@ -21,28 +22,13 @@ const SEOScanner = () => {
     setResults(null);
     
     try {
-      const response = await fetch('https://your-project.supabase.co/functions/v1/seo-scan', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ url })
+      const { data, error } = await supabase.functions.invoke('seo-scan', {
+        body: { url }
       });
       
-      if (!response.ok) {
-        // Handle non-JSON error responses
-        let errorMessage = 'Failed to scan website';
-        try {
-          const errorData = await response.json();
-          errorMessage = errorData.error || errorMessage;
-        } catch {
-          // If response isn't JSON, use status text
-          errorMessage = response.statusText || `HTTP ${response.status}`;
-        }
-        throw new Error(errorMessage);
+      if (error) {
+        throw new Error(error.message || 'Failed to scan website');
       }
-      
-      const data = await response.json();
       
       // Transform the PageSpeed data into the expected format
       const transformedResults = {
