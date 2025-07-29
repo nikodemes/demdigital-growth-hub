@@ -21,7 +21,7 @@ const SEOScanner = () => {
     setResults(null);
     
     try {
-      const response = await fetch('/functions/v1/seo-scan', {
+      const response = await fetch('https://your-project.supabase.co/functions/v1/seo-scan', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
