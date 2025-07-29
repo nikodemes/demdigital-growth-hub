@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Star, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -47,12 +47,12 @@ const ReviewsSection = () => {
   ];
 
   // Auto-rotate reviews
-  useState(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentReview((prev) => (prev + 1) % reviews.length);
     }, 4000);
     return () => clearInterval(interval);
-  });
+  }, [reviews.length]);
 
   const handleStarClick = (starRating: number) => {
     setRating(starRating);

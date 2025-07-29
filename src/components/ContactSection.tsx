@@ -68,23 +68,6 @@ const ContactSection = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-card">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Free SEO Health Check
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Enter your website URL below to get an instant SEO analysis and recommendations.
-              </p>
-              <div className="flex gap-2">
-                <Input 
-                  placeholder="Enter your website URL" 
-                  className="flex-1"
-                />
-                <Button variant="cta">
-                  Scan Now
-                </Button>
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}
