@@ -30,11 +30,16 @@ const SEOScanner = () => {
         throw new Error(error.message || 'Failed to scan website');
       }
       
-      // Transform the PageSpeed data into the expected format
+      // The data is already in the expected format from the edge function
       const transformedResults = {
-        score: data.overall_performance_score || 0,
-        issues: generateIssuesFromMetrics(data),
-        metrics: data
+        score: data.score || 0,
+        issues: data.issues || [],
+        metrics: {
+          first_contentful_paint: data.performance?.fcp || 'N/A',
+          speed_index: data.performance?.speed || 'N/A', 
+          time_to_interactive: data.performance?.lcp || 'N/A',
+          total_blocking_time: data.performance?.cls || 'N/A'
+        }
       };
       
       setResults(transformedResults);
@@ -44,48 +49,6 @@ const SEOScanner = () => {
     } finally {
       setIsScanning(false);
     }
-  };
-
-  const generateIssuesFromMetrics = (data: any) => {
-    const issues = [];
-    
-    if (data.overall_performance_score < 50) {
-      issues.push({
-        type: "error",
-        title: "Poor Performance Score",
-        description: `Your site scored ${data.overall_performance_score}/100. This significantly impacts user experience and search rankings.`
-      });
-    } else if (data.overall_performance_score < 80) {
-      issues.push({
-        type: "warning", 
-        title: "Performance Needs Improvement",
-        description: `Your site scored ${data.overall_performance_score}/100. There's room for improvement to boost search rankings.`
-      });
-    } else {
-      issues.push({
-        type: "success",
-        title: "Good Performance Score",
-        description: `Your site scored ${data.overall_performance_score}/100. Great job on site performance!`
-      });
-    }
-
-    if (data.first_contentful_paint && parseFloat(data.first_contentful_paint) > 2.5) {
-      issues.push({
-        type: "warning",
-        title: "Slow First Contentful Paint",
-        description: `Your page takes ${data.first_contentful_paint} to show content. Consider optimizing images and reducing server response time.`
-      });
-    }
-
-    if (data.time_to_interactive && parseFloat(data.time_to_interactive) > 5) {
-      issues.push({
-        type: "error",
-        title: "Slow Time to Interactive",
-        description: `Your page takes ${data.time_to_interactive} to become interactive. This hurts user experience and SEO.`
-      });
-    }
-
-    return issues;
   };
 
   const getIconByType = (type: string) => {
