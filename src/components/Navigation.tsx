@@ -27,7 +27,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png" 
               alt="DEM Digital Logo" 
-              className="h-10 w-auto"
+              className="h-14 w-auto"
             />
           </Link>
 
