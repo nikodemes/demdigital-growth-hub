@@ -8,25 +8,40 @@ import Footer from "@/components/Footer";
 
 const SEOScanner = () => {
   const [url, setUrl] = useState("");
+  const [email, setEmail] = useState("");
   const [isScanning, setIsScanning] = useState(false);
   const [results, setResults] = useState(null);
+  const [error, setError] = useState("");
 
-  const handleScan = () => {
+  const handleScan = async () => {
+    if (!url || !email) return;
+    
     setIsScanning(true);
-    // Simulate scanning process
-    setTimeout(() => {
-      setResults({
-        score: 72,
-        issues: [
-          { type: "error", title: "Missing Meta Description", description: "Your page is missing a meta description which is crucial for SEO." },
-          { type: "warning", title: "Slow Page Speed", description: "Your page loads in 4.2s. Aim for under 3s for better rankings." },
-          { type: "warning", title: "No Alt Tags", description: "Some images are missing alt tags, hurting accessibility and SEO." },
-          { type: "success", title: "Good Title Tags", description: "Your title tags are well optimized and include keywords." },
-          { type: "success", title: "Mobile Friendly", description: "Your website is fully responsive and mobile-optimized." }
-        ]
+    setError("");
+    setResults(null);
+    
+    try {
+      const response = await fetch('/functions/v1/seo-scan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url })
       });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to scan website');
+      }
+      
+      setResults(data);
+    } catch (err) {
+      console.error('Scan error:', err);
+      setError(err instanceof Error ? err.message : 'Failed to scan website');
+    } finally {
       setIsScanning(false);
-    }, 3000);
+    }
   };
 
   const getIconByType = (type: string) => {
@@ -87,17 +102,23 @@ const SEOScanner = () => {
                 <Input 
                   type="email"
                   placeholder="Your email for the report"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="text-lg"
                   required
                 />
                 <Button 
                   type="submit"
                   variant="cta" 
-                  disabled={!url || isScanning}
+                  disabled={!url || !email || isScanning}
                   className="w-full"
                 >
                   {isScanning ? "Scanning..." : "Scan Now"}
                 </Button>
+                
+                {error && (
+                  <p className="text-red-500 text-sm mt-2">{error}</p>
+                )}
               </form>
               
               <p className="text-sm text-muted-foreground">
