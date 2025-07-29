@@ -44,13 +44,62 @@ const SEOScanner = () => {
       
       const data = await response.json();
       
-      setResults(data);
+      // Transform the PageSpeed data into the expected format
+      const transformedResults = {
+        score: data.overall_performance_score || 0,
+        issues: generateIssuesFromMetrics(data),
+        metrics: data
+      };
+      
+      setResults(transformedResults);
     } catch (err) {
       console.error('Scan error:', err);
       setError(err instanceof Error ? err.message : 'Failed to scan website');
     } finally {
       setIsScanning(false);
     }
+  };
+
+  const generateIssuesFromMetrics = (data: any) => {
+    const issues = [];
+    
+    if (data.overall_performance_score < 50) {
+      issues.push({
+        type: "error",
+        title: "Poor Performance Score",
+        description: `Your site scored ${data.overall_performance_score}/100. This significantly impacts user experience and search rankings.`
+      });
+    } else if (data.overall_performance_score < 80) {
+      issues.push({
+        type: "warning", 
+        title: "Performance Needs Improvement",
+        description: `Your site scored ${data.overall_performance_score}/100. There's room for improvement to boost search rankings.`
+      });
+    } else {
+      issues.push({
+        type: "success",
+        title: "Good Performance Score",
+        description: `Your site scored ${data.overall_performance_score}/100. Great job on site performance!`
+      });
+    }
+
+    if (data.first_contentful_paint && parseFloat(data.first_contentful_paint) > 2.5) {
+      issues.push({
+        type: "warning",
+        title: "Slow First Contentful Paint",
+        description: `Your page takes ${data.first_contentful_paint} to show content. Consider optimizing images and reducing server response time.`
+      });
+    }
+
+    if (data.time_to_interactive && parseFloat(data.time_to_interactive) > 5) {
+      issues.push({
+        type: "error",
+        title: "Slow Time to Interactive",
+        description: `Your page takes ${data.time_to_interactive} to become interactive. This hurts user experience and SEO.`
+      });
+    }
+
+    return issues;
   };
 
   const getIconByType = (type: string) => {
@@ -156,17 +205,37 @@ const SEOScanner = () => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-foreground mb-4">
-                Your SEO Score: <span className="text-primary">{results.score}/100</span>
+                Performance Score: <span className="text-primary">{Math.round(results.score)}/100</span>
               </h2>
               <p className="text-xl text-muted-foreground">
-                Here's what we found and how to improve your Central Scotland search rankings
+                Here's your website's performance analysis and recommendations for improvement
               </p>
+              
+              {/* Performance Metrics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div className="bg-white rounded-lg p-4 shadow-card">
+                  <h3 className="text-sm font-medium text-muted-foreground">First Contentful Paint</h3>
+                  <p className="text-lg font-bold text-foreground">{results.metrics.first_contentful_paint || 'N/A'}</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow-card">
+                  <h3 className="text-sm font-medium text-muted-foreground">Speed Index</h3>
+                  <p className="text-lg font-bold text-foreground">{results.metrics.speed_index || 'N/A'}</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow-card">
+                  <h3 className="text-sm font-medium text-muted-foreground">Time to Interactive</h3>
+                  <p className="text-lg font-bold text-foreground">{results.metrics.time_to_interactive || 'N/A'}</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow-card">
+                  <h3 className="text-sm font-medium text-muted-foreground">Total Blocking Time</h3>
+                  <p className="text-lg font-bold text-foreground">{results.metrics.total_blocking_time || 'N/A'}</p>
+                </div>
+              </div>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Issues List */}
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-foreground mb-6">SEO Issues Found</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Performance Analysis</h3>
                 {results.issues.map((issue, index) => (
                   <div key={index} className="bg-white rounded-lg p-6 shadow-card">
                     <div className="flex items-start gap-4">
@@ -190,9 +259,9 @@ const SEOScanner = () => {
                       Quick Wins (1-2 hours)
                     </h4>
                     <ul className="text-muted-foreground text-sm space-y-1">
-                      <li>• Add missing meta descriptions</li>
-                      <li>• Optimize image alt tags</li>
-                      <li>• Fix broken internal links</li>
+                      <li>• Optimize images (compress, modern formats)</li>
+                      <li>• Enable browser caching</li>
+                      <li>• Minify CSS and JavaScript</li>
                     </ul>
                   </div>
 
@@ -201,9 +270,9 @@ const SEOScanner = () => {
                       Medium Impact (1-2 weeks)
                     </h4>
                     <ul className="text-muted-foreground text-sm space-y-1">
-                      <li>• Improve page loading speed</li>
-                      <li>• Optimize for local keywords</li>
-                      <li>• Build local citations</li>
+                      <li>• Implement lazy loading</li>
+                      <li>• Optimize server response times</li>
+                      <li>• Use a Content Delivery Network (CDN)</li>
                     </ul>
                   </div>
 
@@ -212,9 +281,9 @@ const SEOScanner = () => {
                       Long-term Strategy (1-6 months)
                     </h4>
                     <ul className="text-muted-foreground text-sm space-y-1">
-                      <li>• Content marketing strategy</li>
-                      <li>• Link building campaign</li>
-                      <li>• Technical SEO improvements</li>
+                      <li>• Monitor Core Web Vitals</li>
+                      <li>• Regular performance audits</li>
+                      <li>• Advanced optimization techniques</li>
                     </ul>
                   </div>
                 </div>
