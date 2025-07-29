@@ -29,11 +29,20 @@ const SEOScanner = () => {
         body: JSON.stringify({ url })
       });
       
-      const data = await response.json();
-      
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to scan website');
+        // Handle non-JSON error responses
+        let errorMessage = 'Failed to scan website';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          // If response isn't JSON, use status text
+          errorMessage = response.statusText || `HTTP ${response.status}`;
+        }
+        throw new Error(errorMessage);
       }
+      
+      const data = await response.json();
       
       setResults(data);
     } catch (err) {
