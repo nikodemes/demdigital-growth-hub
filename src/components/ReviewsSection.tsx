@@ -86,15 +86,20 @@ const ReviewsSection = () => {
                   <span className="text-lg font-bold text-primary">5.0</span>
                 </div>
                 <p className="text-muted-foreground text-sm mb-4">Based on 47 reviews</p>
-                <a 
-                  href="https://maps.app.goo.gl/h1gMqB2gRnB9WZaw5?g_st=ipc"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full"
+                  asChild
                 >
-                  <Button variant="outline" size="sm" className="w-full">
+                  <a 
+                    href="https://maps.app.goo.gl/h1gMqB2gRnB9WZaw5?g_st=ipc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Write a Review on Google
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
             </div>
 
