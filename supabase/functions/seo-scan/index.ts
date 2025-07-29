@@ -43,17 +43,26 @@ serve(async (req) => {
     const seoAnalysis = analyzeContent(content, url)
     
     // Combine PageSpeed data with our analysis
+    const seoScore = Math.round(pagespeedData.lighthouseResult.categories.seo.score * 100);
+    const performanceScore = Math.round(pagespeedData.lighthouseResult.categories.performance.score * 100);
+    const accessibilityScore = Math.round(pagespeedData.lighthouseResult.categories.accessibility.score * 100);
+    const bestPracticesScore = Math.round(pagespeedData.lighthouseResult.categories['best-practices'].score * 100);
+    
+    // Calculate overall composite score (weighted average)
+    const overallScore = Math.round((performanceScore * 0.4 + seoScore * 0.3 + accessibilityScore * 0.2 + bestPracticesScore * 0.1));
+    
     const results = {
-      score: Math.round(pagespeedData.lighthouseResult.categories.seo.score * 100),
+      score: overallScore, // Composite score that better reflects overall health
+      seoScore: seoScore,
       issues: generateIssues(pagespeedData, seoAnalysis),
       performance: {
         fcp: pagespeedData.lighthouseResult.audits['first-contentful-paint']?.displayValue || 'N/A',
         lcp: pagespeedData.lighthouseResult.audits['largest-contentful-paint']?.displayValue || 'N/A',
         cls: pagespeedData.lighthouseResult.audits['cumulative-layout-shift']?.displayValue || 'N/A',
         speed: pagespeedData.lighthouseResult.audits['speed-index']?.displayValue || 'N/A',
-        accessibility: Math.round(pagespeedData.lighthouseResult.categories.accessibility.score * 100),
-        bestPractices: Math.round(pagespeedData.lighthouseResult.categories['best-practices'].score * 100),
-        performanceScore: Math.round(pagespeedData.lighthouseResult.categories.performance.score * 100)
+        accessibility: accessibilityScore,
+        bestPractices: bestPracticesScore,
+        performanceScore: performanceScore
       },
       technical: {
         hasCanonical: seoAnalysis.hasCanonical,

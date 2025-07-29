@@ -33,6 +33,7 @@ const SEOScanner = () => {
       // The data is now in enhanced format from the edge function
       const transformedResults = {
         score: data.score || 0,
+        seoScore: data.seoScore || 0,
         issues: data.issues || [],
         performance: data.performance || {},
         technical: data.technical || {},
@@ -157,11 +158,15 @@ const SEOScanner = () => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-foreground mb-4">
-                Performance Score: <span className="text-primary">{Math.round(results.score)}/100</span>
+                Overall Score: <span className="text-primary">{Math.round(results.score)}/100</span>
               </h2>
-              <p className="text-xl text-muted-foreground">
-                Here's your website's performance analysis and recommendations for improvement
+              <p className="text-lg text-muted-foreground mb-2">
+                Composite score based on Performance (40%), SEO (30%), Accessibility (20%), and Best Practices (10%)
               </p>
+              <p className="text-sm text-muted-foreground">
+                Individual SEO Score: <span className="font-semibold">{results.seoScore || 'N/A'}/100</span>
+              </p>
+            </div>
               
               {/* Core Scores */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
@@ -247,7 +252,6 @@ const SEOScanner = () => {
                   </div>
                 </div>
               )}
-            </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Issues List */}
