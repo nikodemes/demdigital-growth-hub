@@ -54,7 +54,7 @@ const About = () => {
                 <Button variant="hero" size="lg">
                   Get Free Consultation
                 </Button>
-                <Button variant="outline" size="lg">
+                <Button variant="secondary" size="lg">
                   View Our Work
                 </Button>
               </div>
@@ -205,7 +205,7 @@ const About = () => {
             <Button variant="hero" size="lg">
               Get Free Consultation
             </Button>
-            <Button variant="outline" size="lg">
+            <Button variant="secondary" size="lg">
               Call +44 7365 343449
             </Button>
           </div>

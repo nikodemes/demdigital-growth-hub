@@ -241,7 +241,7 @@ const CaseStudies = () => {
             <Button variant="hero" size="lg">
               Get Free Marketing Audit
             </Button>
-            <Button variant="outline" size="lg">
+            <Button variant="secondary" size="lg">
               Call +44 7365 343449
             </Button>
           </div>
