@@ -98,50 +98,6 @@ const ReviewsSection = () => {
               </div>
             </div>
 
-            {/* Write Review Form */}
-            <div className="bg-white rounded-2xl p-6 shadow-card">
-              <h3 className="text-xl font-bold text-foreground mb-4 text-center">Leave Us a Review</h3>
-              <p className="text-muted-foreground mb-6 text-center text-sm">
-                Help other businesses in Motherwell, Glasgow & Central Scotland
-              </p>
-
-              <form className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <Input placeholder="Your Name" />
-                  <Input placeholder="Business Name" />
-                </div>
-                <Input placeholder="Email Address" />
-                <div className="flex gap-1 mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star 
-                      key={star} 
-                      className={`w-6 h-6 cursor-pointer transition-smooth ${
-                        star <= rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300 hover:text-yellow-400'
-                      }`}
-                      onClick={() => handleStarClick(star)}
-                    />
-                  ))}
-                </div>
-                <Textarea 
-                  placeholder="Tell us about your experience with DEM Digital..." 
-                  rows={4}
-                />
-                <Button variant="cta" className="w-full">
-                  Submit Review
-                </Button>
-              </form>
-
-              <div className="mt-6 text-center">
-                <a 
-                  href="https://maps.app.goo.gl/h1gMqB2gRnB9WZaw5?g_st=ipc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-primary-light transition-smooth"
-                >
-                  Or leave a review on Google →
-                </a>
-              </div>
-            </div>
           </div>
 
 
