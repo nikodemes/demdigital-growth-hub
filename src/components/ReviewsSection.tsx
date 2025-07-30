@@ -128,14 +128,14 @@ const ReviewsSection = () => {
                   <div className="flex items-center gap-2 mb-2">
                     <div className="flex">
                       {[1, 2, 3, 4, 5].map((star) => {
-                        const rating = loading ? 4.8 : displayRating;
-                        if (star <= Math.floor(rating)) {
+                        const currentRating = 4.8; // Fixed rating for now
+                        if (star <= Math.floor(currentRating)) {
                           return <Star key={star} className="w-5 h-5 fill-yellow-400 text-yellow-400" />;
-                        } else if (star === Math.ceil(rating) && rating % 1 !== 0) {
+                        } else if (star === Math.ceil(currentRating) && currentRating % 1 !== 0) {
                           return (
                             <div key={star} className="relative w-5 h-5">
                               <Star className="w-5 h-5 fill-gray-200 text-gray-200 absolute" />
-                              <div className="overflow-hidden w-1/2">
+                              <div className="overflow-hidden absolute inset-0" style={{ width: `${(currentRating % 1) * 100}%` }}>
                                 <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                               </div>
                             </div>
@@ -146,7 +146,7 @@ const ReviewsSection = () => {
                       })}
                     </div>
                     <span className="text-lg font-semibold text-foreground">
-                      {loading ? "4.8" : displayRating.toFixed(1)}
+                      4.8
                     </span>
                   </div>
                   
