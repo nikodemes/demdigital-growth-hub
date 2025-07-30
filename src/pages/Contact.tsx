@@ -1,8 +1,6 @@
 import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ContactForm } from "@/components/ContactForm";
 import TopBar from "@/components/TopBar";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -39,15 +37,6 @@ const Contact = () => {
     }
   ];
 
-  const services = [
-    "SEO Optimization",
-    "Google Ads Management", 
-    "Meta Ads (Facebook/Instagram)",
-    "Website Design & Development",
-    "Complete Digital Marketing",
-    "Free Marketing Audit",
-    "Other"
-  ];
 
   return (
     <div className="min-h-screen">
@@ -109,119 +98,12 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl p-8 shadow-card">
-              <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold text-foreground mb-4">
-                  Get Your Free Marketing Strategy
-                </h3>
-                <p className="text-muted-foreground">
-                  Tell us about your business and goals. We'll create a custom digital marketing 
-                  strategy for your Central Scotland business.
-                </p>
-              </div>
-
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Full Name *
-                    </label>
-                    <Input placeholder="John Smith" required />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Business Name
-                    </label>
-                    <Input placeholder="Your Company Ltd" />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email Address *
-                    </label>
-                    <Input type="email" placeholder="john@company.co.uk" required />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Phone Number *
-                    </label>
-                    <Input type="tel" placeholder="+44 7xxx xxx xxx" required />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Location
-                    </label>
-                    <Input placeholder="Motherwell, Glasgow, etc." />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Service Interested In
-                    </label>
-                    <Select>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a service" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {services.map((service, index) => (
-                          <SelectItem key={index} value={service.toLowerCase().replace(/\s+/g, '-')}>
-                            {service}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Current Website (if applicable)
-                  </label>
-                  <Input placeholder="https://yourwebsite.co.uk" />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Tell us about your business goals
-                  </label>
-                  <Textarea 
-                    placeholder="What are your main business goals? What challenges are you facing with digital marketing? Any specific questions?"
-                    rows={4}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Monthly Marketing Budget (optional)
-                  </label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select budget range" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="under-500">Under £500/month</SelectItem>
-                      <SelectItem value="500-1000">£500 - £1,000/month</SelectItem>
-                      <SelectItem value="1000-2500">£1,000 - £2,500/month</SelectItem>
-                      <SelectItem value="2500-5000">£2,500 - £5,000/month</SelectItem>
-                      <SelectItem value="5000-plus">£5,000+/month</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <Button variant="cta" className="w-full" size="lg">
-                  Send My Free Strategy Request
-                </Button>
-
-                <p className="text-sm text-muted-foreground text-center">
-                  We'll respond within 2 hours during business hours. 
-                  All consultations are completely free with no obligation.
-                </p>
-              </form>
-            </div>
+            <ContactForm 
+              type="contact"
+              title="Get Your Free Marketing Strategy"
+              description="Tell us about your business and goals. We'll create a custom digital marketing strategy for your Central Scotland business."
+              buttonText="Send My Free Strategy Request"
+            />
 
             {/* Business Info & Quick Contact */}
             <div className="space-y-8">
