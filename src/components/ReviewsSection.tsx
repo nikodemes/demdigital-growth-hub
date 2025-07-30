@@ -80,7 +80,7 @@ const ReviewsSection = () => {
 
   // Use Google reviews if available, fallback to static reviews
   const displayReviews = googleReviews?.reviews || reviews;
-  const displayRating = googleReviews?.rating || 5.0;
+  const displayRating = googleReviews?.rating || 4.8;
   const displayReviewCount = googleReviews?.totalReviews || 47;
   const displayBusinessName = googleReviews?.businessName || "DEM Digital";
 
