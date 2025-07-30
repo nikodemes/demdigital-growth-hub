@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
+import { NewsletterSignup } from "./NewsletterSignup";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -79,15 +80,13 @@ const Footer = () => {
             
             <div>
               <h4 className="text-lg font-semibold mb-4">Marketing Tips Newsletter</h4>
-              <div className="flex gap-2">
-                <Input 
-                  placeholder="Your email" 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-                />
-                <Button variant="cta" size="sm">
-                  Subscribe
-                </Button>
-              </div>
+              <NewsletterSignup 
+                source="footer"
+                placeholder="Your email"
+                buttonText="Subscribe"
+                size="sm"
+                className="max-w-sm"
+              />
             </div>
           </div>
         </div>
