@@ -1,4 +1,5 @@
 import { Search, MousePointer, Share2, Globe, Target, BarChart3 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navigation from "@/components/Navigation";
@@ -138,13 +139,11 @@ const Services = () => {
             Comprehensive digital marketing solutions designed specifically for businesses in 
             Motherwell, Glasgow, and Central Scotland
           </p>
-          <Button 
-            variant="hero" 
-            size="lg"
-            onClick={() => window.location.href = '/free-seo-audit'}
-          >
-            Get Your Free Marketing Strategy
-          </Button>
+          <Link to="/free-seo-audit">
+            <Button variant="hero" size="lg">
+              Get Your Free Marketing Strategy
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -226,13 +225,11 @@ const Services = () => {
             Get a free digital marketing audit and custom strategy for your Central Scotland business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="hero" 
-              size="lg"
-              onClick={() => window.location.href = '/free-seo-audit'}
-            >
-              Get Free Marketing Audit
-            </Button>
+            <Link to="/free-seo-audit">
+              <Button variant="hero" size="lg">
+                Get Free Marketing Audit
+              </Button>
+            </Link>
             <Button 
               variant="outline" 
               size="lg"

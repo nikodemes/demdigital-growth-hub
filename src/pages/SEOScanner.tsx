@@ -332,13 +332,11 @@ const SEOScanner = () => {
                     Get a detailed SEO audit and custom strategy from Central Scotland's 
                     leading digital marketing experts.
                   </p>
-                  <Button 
-                    variant="hero" 
-                    size="sm"
-                    onClick={() => window.location.href = '/free-seo-audit'}
-                  >
-                    Get Professional SEO Audit
-                  </Button>
+                  <Link to="/free-seo-audit">
+                    <Button variant="hero" size="sm">
+                      Get Professional SEO Audit
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -537,13 +535,11 @@ const SEOScanner = () => {
             Get a comprehensive audit and custom strategy from Central Scotland's SEO experts.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="hero" 
-              size="lg"
-              onClick={() => window.location.href = '/free-seo-audit'}
-            >
-              Get Professional SEO Audit
-            </Button>
+            <Link to="/free-seo-audit">
+              <Button variant="hero" size="lg">
+                Get Professional SEO Audit
+              </Button>
+            </Link>
             <Button 
               variant="secondary" 
               size="lg"

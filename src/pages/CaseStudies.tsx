@@ -1,4 +1,5 @@
 import { TrendingUp, Users, DollarSign, Search } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navigation from "@/components/Navigation";
@@ -245,13 +246,11 @@ const CaseStudies = () => {
             audit and see how we can transform your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="hero" 
-              size="lg"
-              onClick={() => window.location.href = '/free-seo-audit'}
-            >
-              Get Free Marketing Audit
-            </Button>
+            <Link to="/free-seo-audit">
+              <Button variant="hero" size="lg">
+                Get Free Marketing Audit
+              </Button>
+            </Link>
             <Button 
               variant="secondary" 
               size="lg"
