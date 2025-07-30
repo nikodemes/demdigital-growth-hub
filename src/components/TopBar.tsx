@@ -16,11 +16,25 @@ const TopBar = () => {
           
           <div className="flex items-center gap-2">
             <div className="flex">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              ))}
+              {[1, 2, 3, 4, 5].map((star) => {
+                const currentRating = 4.8;
+                if (star <= Math.floor(currentRating)) {
+                  return <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />;
+                } else if (star === Math.ceil(currentRating) && currentRating % 1 !== 0) {
+                  return (
+                    <div key={star} className="relative w-4 h-4">
+                      <Star className="w-4 h-4 fill-gray-200 text-gray-200 absolute" />
+                      <div className="overflow-hidden absolute inset-0" style={{ width: `${(currentRating % 1) * 100}%` }}>
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      </div>
+                    </div>
+                  );
+                } else {
+                  return <Star key={star} className="w-4 h-4 fill-gray-200 text-gray-200" />;
+                }
+              })}
             </div>
-            <span className="text-sm text-white font-medium">5.0</span>
+            <span className="text-sm text-white font-medium">4.8</span>
           </div>
         </div>
       </div>
