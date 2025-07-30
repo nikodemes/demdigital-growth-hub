@@ -54,7 +54,7 @@ const ReviewsSection = () => {
       try {
         console.log('🚀 Starting Google Reviews fetch...');
         const { data, error } = await supabase.functions.invoke('google-reviews', {
-          body: { placeId: 'ChIJK8opDmCHh0gRbBCDcqMKHFg' }
+          body: { placeId: 'ChIJu01ZKnttiEgRRrjuoqaJ1So' }
         });
         console.log('📊 Google Reviews response:', { data, error });
         if (data && !error) {
