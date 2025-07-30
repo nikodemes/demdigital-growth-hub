@@ -118,6 +118,9 @@ const SEOScanner = () => {
                   className="text-lg"
                   required
                 />
+                <p className="text-xs text-muted-foreground text-left">
+                  By providing your email, you agree to receive our occasional newsletter with SEO tips and digital marketing insights. You can unsubscribe at any time.
+                </p>
                 <Button 
                   type="submit"
                   variant="cta" 
