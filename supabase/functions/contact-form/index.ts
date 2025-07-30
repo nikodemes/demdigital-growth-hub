@@ -91,7 +91,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email to business
     const notificationEmail = await resend.emails.send({
       from: "DEM Digital Forms <hello@demdigital.co.uk>",
-      to: ["hello@demdigital.co.uk"],
+      to: ["your-email@yourdomain.com"], // Replace with your actual email
       subject: `New ${formData.type === 'contact' ? 'Contact Form' : 'SEO Audit Request'} - ${formData.fullName}`,
       html: generateNotificationEmail(formData),
     });
