@@ -64,15 +64,6 @@ const ReviewsSection = () => {
     fetchGoogleReviews();
   }, []);
 
-  // Auto-rotate reviews
-  useEffect(() => {
-    const reviewsToUse = displayReviews;
-    const interval = setInterval(() => {
-      setCurrentReview((prev) => (prev + 1) % reviewsToUse.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [displayReviews]);
-
   const handleStarClick = (starRating: number) => {
     setRating(starRating);
   };
@@ -82,6 +73,15 @@ const ReviewsSection = () => {
   const displayRating = googleReviews?.rating || 5.0;
   const displayReviewCount = googleReviews?.totalReviews || 47;
   const displayBusinessName = googleReviews?.businessName || "DEM Digital";
+
+  // Auto-rotate reviews
+  useEffect(() => {
+    const reviewsToUse = displayReviews;
+    const interval = setInterval(() => {
+      setCurrentReview((prev) => (prev + 1) % reviewsToUse.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [displayReviews]);
 
   return (
     <section className="py-20 bg-gradient-subtle">
