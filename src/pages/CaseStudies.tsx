@@ -120,7 +120,11 @@ const CaseStudies = () => {
             See how we've helped businesses across Motherwell, Glasgow, and Central Scotland 
             achieve remarkable growth through strategic digital marketing.
           </p>
-          <Button variant="hero" size="lg">
+          <Button 
+            variant="hero" 
+            size="lg"
+            onClick={() => window.location.href = '/contact'}
+          >
             Get Your Success Story
           </Button>
         </div>
@@ -177,7 +181,10 @@ const CaseStudies = () => {
                       </div>
                     </div>
 
-                    <Button variant="cta">
+                    <Button 
+                      variant="cta"
+                      onClick={() => window.location.href = '/contact'}
+                    >
                       Get Similar Results
                     </Button>
                   </div>
@@ -238,10 +245,18 @@ const CaseStudies = () => {
             audit and see how we can transform your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => window.location.href = '/free-seo-audit'}
+            >
               Get Free Marketing Audit
             </Button>
-            <Button variant="secondary" size="lg">
+            <Button 
+              variant="secondary" 
+              size="lg"
+              onClick={() => window.open('tel:+447365343449', '_self')}
+            >
               Call +44 7365 343449
             </Button>
           </div>

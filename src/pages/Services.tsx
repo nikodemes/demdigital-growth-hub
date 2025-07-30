@@ -138,7 +138,11 @@ const Services = () => {
             Comprehensive digital marketing solutions designed specifically for businesses in 
             Motherwell, Glasgow, and Central Scotland
           </p>
-          <Button variant="hero" size="lg">
+          <Button 
+            variant="hero" 
+            size="lg"
+            onClick={() => window.location.href = '/free-seo-audit'}
+          >
             Get Your Free Marketing Strategy
           </Button>
         </div>
@@ -199,7 +203,11 @@ const Services = () => {
                   </ul>
                 </div>
 
-                <Button variant="cta" className="w-full">
+                <Button 
+                  variant="cta" 
+                  className="w-full"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   Learn More
                 </Button>
               </div>
@@ -218,10 +226,18 @@ const Services = () => {
             Get a free digital marketing audit and custom strategy for your Central Scotland business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => window.location.href = '/free-seo-audit'}
+            >
               Get Free Marketing Audit
             </Button>
-            <Button variant="outline" size="lg">
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => window.open('tel:+447365343449', '_self')}
+            >
               Call +44 7365 343449
             </Button>
           </div>

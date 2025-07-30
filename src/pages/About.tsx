@@ -51,10 +51,18 @@ const About = () => {
                 Motherwell, Glasgow, and beyond achieve measurable online growth since 2019.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="lg">
+                <Button 
+                  variant="hero" 
+                  size="lg"
+                  onClick={() => window.location.href = '/contact'}
+                >
                   Get Free Consultation
                 </Button>
-                <Button variant="secondary" size="lg">
+                <Button 
+                  variant="secondary" 
+                  size="lg"
+                  onClick={() => window.location.href = '/case-studies'}
+                >
                   View Our Work
                 </Button>
               </div>
@@ -202,10 +210,18 @@ const About = () => {
             Get your free digital marketing consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => window.location.href = '/contact'}
+            >
               Get Free Consultation
             </Button>
-            <Button variant="secondary" size="lg">
+            <Button 
+              variant="secondary" 
+              size="lg"
+              onClick={() => window.open('tel:+447365343449', '_self')}
+            >
               Call +44 7365 343449
             </Button>
           </div>
