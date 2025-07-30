@@ -54,7 +54,13 @@ const Contact = () => {
             Ready to grow your business online? Contact DEM Digital today for expert digital marketing 
             services across Motherwell, Glasgow, and Central Scotland.
           </p>
-          <Button variant="hero" size="lg">
+          <Button 
+            variant="hero" 
+            size="lg"
+            onClick={() => {
+              document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Get Free Consultation
           </Button>
         </div>
