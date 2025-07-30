@@ -3,8 +3,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,11 +15,62 @@ const ContactSection = () => {
     service: "",
     message: ""
   });
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Contact form submitted:", formData);
-    // TODO: Integrate with actual form handler
+    
+    if (!formData.name || !formData.email) {
+      toast({
+        title: "Missing required fields",
+        description: "Please fill in your name and email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('contact-form', {
+        body: {
+          type: 'contact',
+          fullName: formData.name,
+          email: formData.email,
+          phone: formData.phone || undefined,
+          message: formData.message || undefined,
+          service: formData.service || undefined
+        }
+      });
+
+      if (error) {
+        throw new Error(error.message || 'Failed to submit form');
+      }
+
+      toast({
+        title: "Form submitted successfully!",
+        description: data.message || "We'll be in touch soon. Check your email for confirmation.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: ""
+      });
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Submission failed",
+        description: error instanceof Error ? error.message : "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -127,8 +181,9 @@ const ContactSection = () => {
                 variant="hero" 
                 size="lg" 
                 className="w-full"
+                disabled={isSubmitting}
               >
-                Get My Free Consultation
+                {isSubmitting ? "Submitting..." : "Get My Free Consultation"}
               </Button>
             </form>
             

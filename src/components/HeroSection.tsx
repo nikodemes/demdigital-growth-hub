@@ -2,18 +2,69 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import heroImage from "@/assets/hero-marketing.jpg";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const HeroSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: ""
   });
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Lead form submitted:", formData);
-    // TODO: Integrate with actual form handler
+    
+    if (!formData.name || !formData.email || !formData.company) {
+      toast({
+        title: "Missing required fields",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('contact-form', {
+        body: {
+          type: 'contact',
+          fullName: formData.name,
+          businessName: formData.company,
+          email: formData.email,
+          message: "Free marketing strategy request from hero form"
+        }
+      });
+
+      if (error) {
+        throw new Error(error.message || 'Failed to submit form');
+      }
+
+      toast({
+        title: "Strategy request submitted!",
+        description: data.message || "We'll be in touch soon. Check your email for confirmation.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        company: ""
+      });
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Submission failed",
+        description: error instanceof Error ? error.message : "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -110,8 +161,9 @@ const HeroSection = () => {
                 variant="hero" 
                 size="lg" 
                 className="w-full h-14 text-xl"
+                disabled={isSubmitting}
               >
-                Send Me My Free Strategy
+                {isSubmitting ? "Submitting..." : "Send Me My Free Strategy"}
               </Button>
             </form>
             
