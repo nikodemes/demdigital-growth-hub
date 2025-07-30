@@ -1,4 +1,5 @@
 import { Users, Award, Target, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import TopBar from "@/components/TopBar";
 import Navigation from "@/components/Navigation";
@@ -51,20 +52,16 @@ const About = () => {
                 Motherwell, Glasgow, and beyond achieve measurable online growth since 2019.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  variant="hero" 
-                  size="lg"
-                  onClick={() => window.location.href = '/contact'}
-                >
-                  Get Free Consultation
-                </Button>
-                <Button 
-                  variant="secondary" 
-                  size="lg"
-                  onClick={() => window.location.href = '/case-studies'}
-                >
-                  View Our Work
-                </Button>
+                <Link to="/contact">
+                  <Button variant="hero" size="lg">
+                    Get Free Consultation
+                  </Button>
+                </Link>
+                <Link to="/case-studies">
+                  <Button variant="secondary" size="lg">
+                    View Our Work
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="relative">
@@ -210,13 +207,11 @@ const About = () => {
             Get your free digital marketing consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="hero" 
-              size="lg"
-              onClick={() => window.location.href = '/contact'}
-            >
-              Get Free Consultation
-            </Button>
+            <Link to="/contact">
+              <Button variant="hero" size="lg">
+                Get Free Consultation
+              </Button>
+            </Link>
             <Button 
               variant="secondary" 
               size="lg"

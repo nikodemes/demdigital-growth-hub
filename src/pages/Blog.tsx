@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Calendar, Clock, ArrowRight, Search } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import TopBar from "@/components/TopBar";
@@ -401,9 +402,11 @@ const Blog = () => {
                 Let's discuss how we can help you achieve remarkable digital marketing results.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="hero" size="lg">
-                  Get Free Consultation
-                </Button>
+                <Link to="/contact">
+                  <Button variant="hero" size="lg">
+                    Get Free Consultation
+                  </Button>
+                </Link>
                 <Button variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-primary">
                   Call +44 7365 343449
                 </Button>
