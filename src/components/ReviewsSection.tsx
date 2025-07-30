@@ -51,14 +51,22 @@ const ReviewsSection = () => {
   useEffect(() => {
     const fetchGoogleReviews = async () => {
       try {
-        const { data } = await supabase.functions.invoke('google-reviews', {
+        console.log('Starting Google Reviews fetch...');
+        const { data, error } = await supabase.functions.invoke('google-reviews', {
           body: { placeId: 'ChIJK8opDmCHh0gRbBCDcqMKHFg' }
         });
-        if (data) setGoogleReviews(data);
+        console.log('Google Reviews response:', { data, error });
+        if (data && !error) {
+          console.log('Setting Google Reviews data:', data);
+          setGoogleReviews(data);
+        } else if (error) {
+          console.error('Google Reviews error:', error);
+        }
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Google Reviews fetch error:', error);
       } finally {
         setLoading(false);
+        console.log('Google Reviews fetch completed, loading set to false');
       }
     };
     fetchGoogleReviews();
