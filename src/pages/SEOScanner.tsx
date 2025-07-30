@@ -331,7 +331,11 @@ const SEOScanner = () => {
                     Get a detailed SEO audit and custom strategy from Central Scotland's 
                     leading digital marketing experts.
                   </p>
-                  <Button variant="hero" size="sm">
+                  <Button 
+                    variant="hero" 
+                    size="sm"
+                    onClick={() => window.location.href = '/free-seo-audit'}
+                  >
                     Get Professional SEO Audit
                   </Button>
                 </div>
@@ -408,10 +412,18 @@ const SEOScanner = () => {
             Get a comprehensive audit and custom strategy from Central Scotland's SEO experts.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => window.location.href = '/free-seo-audit'}
+            >
               Get Professional SEO Audit
             </Button>
-            <Button variant="secondary" size="lg">
+            <Button 
+              variant="secondary" 
+              size="lg"
+              onClick={() => window.open('tel:+447365343449', '_self')}
+            >
               Call +44 7365 343449
             </Button>
           </div>
