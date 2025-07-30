@@ -99,7 +99,7 @@ const PrivacyPolicy = () => {
               <p><strong>DEM Digital</strong></p>
               <p>Email: hello@demdigital.co.uk</p>
               <p>Phone: +44 7365 343449</p>
-              <p>Address: 6 Panmuir Crescent, ML15UR</p>
+              <p>Location: Motherwell, Central Scotland</p>
             </div>
           </section>
         </div>
