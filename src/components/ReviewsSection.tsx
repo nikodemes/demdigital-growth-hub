@@ -73,33 +73,53 @@ const ReviewsSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Business Info & Write Review - Left Side */}
           <div className="space-y-6">
-            {/* Business Overview */}
-            <div className="bg-white rounded-2xl p-6 shadow-card">
-              <div className="text-center">
-                <h3 className="text-xl font-bold text-foreground mb-3">DEM Digital</h3>
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                    ))}
+            {/* Google Reviews Widget */}
+            <div className="bg-white rounded-2xl p-8 shadow-card">
+              <div className="flex items-start gap-6">
+                {/* Business Logo/Image */}
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 bg-gradient-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                    DEM
                   </div>
-                  <span className="text-lg font-bold text-primary">5.0</span>
                 </div>
-                <p className="text-muted-foreground text-sm mb-4">Based on 47 reviews</p>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="w-full"
-                  asChild
-                >
-                  <a 
-                    href="https://maps.app.goo.gl/h1gMqB2gRnB9WZaw5?g_st=ipc"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                
+                {/* Business Info */}
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-foreground mb-2">DEM Digital</h3>
+                  
+                  {/* Rating */}
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="flex">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Star key={star} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <span className="text-lg font-semibold text-foreground">5.0</span>
+                  </div>
+                  
+                  <p className="text-muted-foreground text-base mb-6">47 Google reviews</p>
+                  
+                  {/* Write Review Button */}
+                  <Button 
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium"
+                    asChild
                   >
-                    Write a Review on Google
-                  </a>
-                </Button>
+                    <a 
+                      href="https://maps.app.goo.gl/h1gMqB2gRnB9WZaw5?g_st=ipc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Write a review
+                    </a>
+                  </Button>
+                </div>
+                
+                {/* Google Logo */}
+                <div className="flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center">
+                    <span className="text-xs font-bold" style={{ color: '#4285f4' }}>G</span>
+                  </div>
+                </div>
               </div>
             </div>
 
