@@ -202,13 +202,11 @@ const Services = () => {
                   </ul>
                 </div>
 
-                <Button 
-                  variant="cta" 
-                  className="w-full"
-                  onClick={() => window.location.href = '/contact'}
-                >
-                  Learn More
-                </Button>
+                <Link to="/contact">
+                  <Button variant="cta" className="w-full">
+                    Learn More
+                  </Button>
+                </Link>
               </div>
             ))}
           </div>
@@ -231,7 +229,7 @@ const Services = () => {
               </Button>
             </Link>
             <Button 
-              variant="outline" 
+              variant="secondary" 
               size="lg"
               onClick={() => window.open('tel:+447365343449', '_self')}
             >
