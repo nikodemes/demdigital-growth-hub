@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { corsHeaders } from '../_shared/cors.ts'
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.3'
 
 console.log("SEO Scan function starting...")
 
@@ -10,10 +11,14 @@ serve(async (req) => {
   }
 
   try {
-    const { url } = await req.json()
+    const { url, email } = await req.json()
     
     if (!url) {
       throw new Error('URL is required')
+    }
+    
+    if (!email) {
+      throw new Error('Email is required')
     }
 
     // Get PageSpeed Insights API key from environment
@@ -83,6 +88,43 @@ serve(async (req) => {
         h2Count: seoAnalysis.h2Count,
         h3Count: seoAnalysis.h3Count
       }
+    }
+
+    // Initialize Supabase client
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!
+    const supabaseKey = Deno.env.get('SUPABASE_ANON_KEY')!
+    const supabase = createClient(supabaseUrl, supabaseKey)
+
+    // Save email to newsletter signups (only if not already exists)
+    const { error: emailError } = await supabase
+      .from('newsletter_signups')
+      .insert([
+        { 
+          email: email,
+          source: 'seo-scanner'
+        }
+      ]);
+
+    // Don't fail the scan if email saving fails (might be duplicate)
+    if (emailError) {
+      console.error('Error saving email:', emailError);
+    }
+
+    // Save every scan to the seo_scans table
+    const { error: scanError } = await supabase
+      .from('seo_scans')
+      .insert([
+        {
+          url: url,
+          email: email,
+          scan_results: results,
+          ip_address: req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip'),
+          user_agent: req.headers.get('user-agent')
+        }
+      ]);
+
+    if (scanError) {
+      console.error('Error saving scan record:', scanError);
     }
 
     return new Response(

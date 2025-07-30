@@ -77,6 +77,39 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_scans: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          ip_address: string | null
+          scan_results: Json | null
+          scanned_at: string
+          url: string
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          ip_address?: string | null
+          scan_results?: Json | null
+          scanned_at?: string
+          url: string
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          ip_address?: string | null
+          scan_results?: Json | null
+          scanned_at?: string
+          url?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
