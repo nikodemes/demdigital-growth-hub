@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Star, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { supabase } from "@/integrations/supabase/client";
 
 const ReviewsSection = () => {
   const [rating, setRating] = useState(0);
   const [currentReview, setCurrentReview] = useState(0);
+  const [googleReviews, setGoogleReviews] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
   const reviews = [
     {
@@ -46,17 +47,41 @@ const ReviewsSection = () => {
     }
   ];
 
+  // Fetch Google reviews
+  useEffect(() => {
+    const fetchGoogleReviews = async () => {
+      try {
+        const { data } = await supabase.functions.invoke('google-reviews', {
+          body: { placeId: 'ChIJK8opDmCHh0gRbBCDcqMKHFg' }
+        });
+        if (data) setGoogleReviews(data);
+      } catch (error) {
+        console.error('Error:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchGoogleReviews();
+  }, []);
+
   // Auto-rotate reviews
   useEffect(() => {
+    const reviewsToUse = displayReviews;
     const interval = setInterval(() => {
-      setCurrentReview((prev) => (prev + 1) % reviews.length);
+      setCurrentReview((prev) => (prev + 1) % reviewsToUse.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [reviews.length]);
+  }, [displayReviews]);
 
   const handleStarClick = (starRating: number) => {
     setRating(starRating);
   };
+
+  // Use Google reviews if available, fallback to static reviews
+  const displayReviews = googleReviews?.reviews || reviews;
+  const displayRating = googleReviews?.rating || 5.0;
+  const displayReviewCount = googleReviews?.totalReviews || 47;
+  const displayBusinessName = googleReviews?.businessName || "DEM Digital";
 
   return (
     <section className="py-20 bg-gradient-subtle">
@@ -85,19 +110,32 @@ const ReviewsSection = () => {
                 
                 {/* Business Info */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-foreground mb-2">DEM Digital</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">
+                    {loading ? "DEM Digital" : displayBusinessName}
+                  </h3>
                   
                   {/* Rating */}
                   <div className="flex items-center gap-2 mb-2">
                     <div className="flex">
                       {[1, 2, 3, 4, 5].map((star) => (
-                        <Star key={star} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                        <Star 
+                          key={star} 
+                          className={`w-5 h-5 ${
+                            star <= Math.floor(displayRating) 
+                              ? "fill-yellow-400 text-yellow-400" 
+                              : "fill-gray-200 text-gray-200"
+                          }`} 
+                        />
                       ))}
                     </div>
-                    <span className="text-lg font-semibold text-foreground">5.0</span>
+                    <span className="text-lg font-semibold text-foreground">
+                      {loading ? "5.0" : displayRating.toFixed(1)}
+                    </span>
                   </div>
                   
-                  <p className="text-muted-foreground text-base mb-6">47 Google reviews</p>
+                  <p className="text-muted-foreground text-base mb-6">
+                    {loading ? "47 Google reviews" : `${displayReviewCount} Google reviews`}
+                  </p>
                   
                   {/* Write Review Button */}
                   <Button 
