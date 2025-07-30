@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-import heroImage from "@/assets/hero-scottish-highlands.jpg";
+import heroImage from "@/assets/hero-scottish-clear.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -73,8 +73,8 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-hero">
         <img 
           src={heroImage} 
-          alt="Digital Marketing Agency Hero" 
-          className="w-full h-full object-cover mix-blend-overlay opacity-20"
+          alt="Scottish Highland landscape with dramatic cliffs and loch" 
+          className="w-full h-full object-cover mix-blend-overlay opacity-30"
         />
       </div>
       
