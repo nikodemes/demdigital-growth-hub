@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Search, CheckCircle, XCircle, AlertTriangle, Globe } from "lucide-react";
+import { Search, CheckCircle, XCircle, AlertTriangle, Globe, ArrowRight, Target, TrendingUp, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import TopBar from "@/components/TopBar";
@@ -397,6 +398,130 @@ const SEOScanner = () => {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Our SEO Scanner - Content Section */}
+      <section className="py-20 bg-gradient-subtle">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                  Why Use Our <span className="text-primary">Free SEO Scanner</span>?
+                </h2>
+                <p className="text-xl text-muted-foreground leading-relaxed mb-6">
+                  SEO is crucial for businesses in Central Scotland looking to compete online. With over 3.5 billion searches conducted daily on Google, your website's visibility can make or break your business growth. Our free SEO scanner provides comprehensive analysis specifically tailored for Scottish businesses operating in Motherwell, Glasgow, Hamilton, and surrounding areas.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  Unlike generic SEO tools, our scanner understands the unique challenges facing Scottish businesses. We analyze local search factors, competitor landscapes specific to Central Scotland markets, and provide actionable recommendations that actually work for businesses in our region. Whether you're a local tradesperson, professional service provider, or retail business, our tool identifies the exact SEO improvements needed to outrank your competitors.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  The best part? It's completely free and provides instant results. No hidden costs, no complicated setups - just honest, professional SEO analysis that helps you understand where your website stands and what needs to be improved to attract more local customers and grow your business online.
+                </p>
+              </div>
+              
+              <div className="flex flex-wrap gap-4">
+                <Link to="/services">
+                  <Button variant="default" size="lg" className="group">
+                    Explore Our SEO Services
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-smooth" />
+                  </Button>
+                </Link>
+                <Link to="/case-studies">
+                  <Button variant="outline" size="lg">
+                    View SEO Success Stories
+                  </Button>
+                </Link>
+                <Link to="/blog">
+                  <Button variant="outline" size="lg">
+                    Read SEO Tips & Guides
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="bg-white rounded-2xl p-8 shadow-card border">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Target className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      Local Market Focus
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Specifically designed for Central Scotland businesses with local search optimization strategies that work in Motherwell, Glasgow, and surrounding areas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 shadow-card border">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      Advanced Analysis
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Goes beyond basic checks to analyze Core Web Vitals, mobile optimization, local SEO factors, and competitor positioning in your specific market.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 shadow-card border">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                      Expert Insights
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Built by professional SEO consultants with years of experience helping Central Scotland businesses achieve top rankings and increased online visibility.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Content Section */}
+          <div className="mt-20 grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-foreground mb-4">Instant SEO Analysis</h3>
+              <p className="text-muted-foreground mb-6">
+                Get immediate insights into your website's SEO performance with our lightning-fast scanner. No waiting, no delays - just comprehensive results in seconds that help you understand exactly where your site stands in search rankings.
+              </p>
+              <Link to="/free-seo-audit">
+                <Button variant="outline">Get Professional Audit</Button>
+              </Link>
+            </div>
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-foreground mb-4">Local SEO Expertise</h3>
+              <p className="text-muted-foreground mb-6">
+                Our team understands the Central Scotland market inside and out. We know what works for local businesses and how to help you compete effectively against other businesses in Motherwell, Glasgow, and the wider region.
+              </p>
+              <Link to="/about">
+                <Button variant="outline">Learn About Our Team</Button>
+              </Link>
+            </div>
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-foreground mb-4">Actionable Recommendations</h3>
+              <p className="text-muted-foreground mb-6">
+                Don't just get scores - get specific, actionable recommendations that you can implement immediately. Our scanner provides clear, prioritized steps to improve your SEO and start ranking higher in local searches.
+              </p>
+              <Link to="/contact">
+                <Button variant="outline">Get SEO Help</Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
