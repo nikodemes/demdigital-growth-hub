@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 import { NewsletterSignup } from "./NewsletterSignup";
 
 const Footer = () => {
@@ -102,9 +103,9 @@ const Footer = () => {
               © {currentYear} DEM Digital. All rights reserved. Helping businesses grow online across Motherwell, Glasgow & Central Scotland.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-white/60 hover:text-white transition-smooth">Privacy Policy</a>
-              <a href="#" className="text-white/60 hover:text-white transition-smooth">Terms of Service</a>
-              <a href="#" className="text-white/60 hover:text-white transition-smooth">Cookie Policy</a>
+              <Link to="/privacy-policy" className="text-white/60 hover:text-white transition-smooth">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="text-white/60 hover:text-white transition-smooth">Terms of Service</Link>
+              <Link to="/cookie-policy" className="text-white/60 hover:text-white transition-smooth">Cookie Policy</Link>
             </div>
           </div>
         </div>
