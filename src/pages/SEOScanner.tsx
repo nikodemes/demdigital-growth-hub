@@ -22,6 +22,19 @@ const SEOScanner = () => {
     setResults(null);
     
     try {
+      // Save email to newsletter signups (silently, don't block the scan)
+      try {
+        await supabase
+          .from('newsletter_signups')
+          .insert({ 
+            email: email.toLowerCase().trim(),
+            source: 'seo-scanner'
+          });
+      } catch (emailError) {
+        // Log but don't fail the scan if email is already in database
+        console.log('Newsletter signup:', emailError);
+      }
+
       const { data, error } = await supabase.functions.invoke('seo-scan', {
         body: { url }
       });
