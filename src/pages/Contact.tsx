@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageSquare, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ContactForm";
 import TopBar from "@/components/TopBar";
@@ -249,6 +250,47 @@ const Contact = () => {
                 <p className="text-muted-foreground">{faq.answer}</p>
               </div>
             ))}
+          </div>
+
+          {/* Internal Links Section */}
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-foreground mb-8">
+              Explore Our Digital Marketing Services
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link to="/services">
+                <Button variant="outline" className="w-full group">
+                  Our Services
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-smooth" />
+                </Button>
+              </Link>
+              <Link to="/seo-scanner">
+                <Button variant="outline" className="w-full group">
+                  Free SEO Scanner
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-smooth" />
+                </Button>
+              </Link>
+              <Link to="/case-studies">
+                <Button variant="outline" className="w-full group">
+                  Case Studies
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-smooth" />
+                </Button>
+              </Link>
+              <Link to="/about">
+                <Button variant="outline" className="w-full group">
+                  About Our Team
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-smooth" />
+                </Button>
+              </Link>
+            </div>
+            <div className="mt-6">
+              <Link to="/blog">
+                <Button variant="outline" size="lg" className="group">
+                  Read Our Digital Marketing Blog
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-smooth" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
