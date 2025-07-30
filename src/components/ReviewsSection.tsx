@@ -177,13 +177,13 @@ const ReviewsSection = () => {
             <div className="bg-white rounded-2xl p-8 shadow-card min-h-[400px] flex flex-col justify-center">
               {/* Navigation Arrows */}
               <button 
-                onClick={() => setCurrentReview((prev) => prev === 0 ? reviews.length - 1 : prev - 1)}
+                onClick={() => setCurrentReview((prev) => prev === 0 ? displayReviews.length - 1 : prev - 1)}
                 className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-light transition-smooth z-10"
               >
                 ←
               </button>
               <button 
-                onClick={() => setCurrentReview((prev) => (prev + 1) % reviews.length)}
+                onClick={() => setCurrentReview((prev) => (prev + 1) % displayReviews.length)}
                 className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-light transition-smooth z-10"
               >
                 →
@@ -193,22 +193,36 @@ const ReviewsSection = () => {
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <User className="w-8 h-8 text-white" />
                 </div>
-                <h4 className="text-xl font-bold text-foreground">{reviews[currentReview].name}</h4>
-                <p className="text-muted-foreground">{reviews[currentReview].location} • {reviews[currentReview].service}</p>
+                <h4 className="text-xl font-bold text-foreground">
+                  {displayReviews[currentReview]?.authorName || displayReviews[currentReview]?.name || "Anonymous"}
+                </h4>
+                <p className="text-muted-foreground">
+                  {displayReviews[currentReview]?.location && displayReviews[currentReview]?.service 
+                    ? `${displayReviews[currentReview].location} • ${displayReviews[currentReview].service}`
+                    : displayReviews[currentReview]?.relativeTimeDescription || "Google Review"
+                  }
+                </p>
               </div>
 
               <div className="flex justify-center mb-6">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  <Star 
+                    key={star} 
+                    className={`w-5 h-5 ${
+                      star <= (displayReviews[currentReview]?.rating || 5) 
+                        ? "fill-yellow-400 text-yellow-400" 
+                        : "fill-gray-200 text-gray-200"
+                    }`} 
+                  />
                 ))}
               </div>
 
               <blockquote className="text-lg text-center text-muted-foreground leading-relaxed mb-6">
-                "{reviews[currentReview].text}"
+                "{displayReviews[currentReview]?.text}"
               </blockquote>
 
               <div className="flex justify-center gap-2">
-                {reviews.map((_, index) => (
+                {displayReviews.map((_, index) => (
                   <button
                     key={index}
                     className={`w-2 h-2 rounded-full transition-smooth ${
