@@ -49,6 +49,7 @@ const ReviewsSection = () => {
 
   // Fetch Google reviews
   useEffect(() => {
+    console.log('🔄 ReviewsSection component mounted');
     const fetchGoogleReviews = async () => {
       try {
         console.log('🚀 Starting Google Reviews fetch...');
@@ -59,14 +60,15 @@ const ReviewsSection = () => {
         if (data && !error) {
           console.log('✅ Setting Google Reviews data:', data);
           setGoogleReviews(data);
-        } else if (error) {
-          console.error('❌ Google Reviews error:', error);
+        } else {
+          console.log('⚠️ Using fallback reviews due to API error:', error);
         }
       } catch (error) {
         console.error('💥 Google Reviews fetch error:', error);
+        console.log('⚠️ Using fallback reviews due to fetch error');
       } finally {
         setLoading(false);
-        console.log('🏁 Google Reviews fetch completed');
+        console.log('🏁 Google Reviews fetch completed - using fallback reviews');
       }
     };
     fetchGoogleReviews();
