@@ -1,4 +1,5 @@
-import { Search, MousePointer, Share2, Globe } from "lucide-react";
+import { Search, MousePointer, Share2, Globe, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const ServicesSection = () => {
@@ -102,24 +103,52 @@ const ServicesSection = () => {
               Get a comprehensive digital marketing audit and custom strategy for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="hero" 
-                size="lg"
-                onClick={() => {
-                  window.location.href = '/free-seo-audit';
-                }}
-              >
-                Get Free Marketing Audit
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => {
-                  window.location.href = '/case-studies';
-                }}
-              >
-                View Our Portfolio
-              </Button>
+              <Link to="/free-seo-audit">
+                <Button variant="hero" size="lg">
+                  Get Free Marketing Audit
+                </Button>
+              </Link>
+              <Link to="/case-studies">
+                <Button variant="outline" size="lg">
+                  View Our Portfolio
+                </Button>
+              </Link>
+            </div>
+          </div>
+          
+          {/* Additional Internal Links */}
+          <div className="mt-12">
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link to="/services" className="group">
+                <div className="bg-white rounded-xl p-6 shadow-card hover:shadow-elegant transition-smooth">
+                  <h4 className="font-bold text-foreground mb-2 group-hover:text-primary transition-smooth">
+                    All Services →
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Explore our complete range of digital marketing solutions
+                  </p>
+                </div>
+              </Link>
+              <Link to="/seo-scanner" className="group">
+                <div className="bg-white rounded-xl p-6 shadow-card hover:shadow-elegant transition-smooth">
+                  <h4 className="font-bold text-foreground mb-2 group-hover:text-primary transition-smooth">
+                    Free SEO Scanner →
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Get instant SEO analysis of your website
+                  </p>
+                </div>
+              </Link>
+              <Link to="/about" className="group">
+                <div className="bg-white rounded-xl p-6 shadow-card hover:shadow-elegant transition-smooth">
+                  <h4 className="font-bold text-foreground mb-2 group-hover:text-primary transition-smooth">
+                    About Our Team →
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Meet Central Scotland's digital marketing experts
+                  </p>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

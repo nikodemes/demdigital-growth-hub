@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -190,6 +191,59 @@ const ContactSection = () => {
             <p className="text-xs text-muted-foreground text-center mt-4">
               We'll get back to you within 24 hours with a custom strategy proposal.
             </p>
+          </div>
+        </div>
+        
+        {/* Internal Links Section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold text-foreground mb-8">
+            Learn More About Our Services
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link to="/services" className="group">
+              <div className="bg-white rounded-xl p-6 shadow-card hover:shadow-elegant transition-smooth">
+                <h4 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-smooth">
+                  Digital Marketing Services
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  SEO, Google Ads, Web Design & More
+                </p>
+                <ArrowRight className="w-4 h-4 mx-auto mt-2 group-hover:translate-x-1 transition-smooth" />
+              </div>
+            </Link>
+            <Link to="/seo-scanner" className="group">
+              <div className="bg-white rounded-xl p-6 shadow-card hover:shadow-elegant transition-smooth">
+                <h4 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-smooth">
+                  Free SEO Scanner
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Instant website analysis tool
+                </p>
+                <ArrowRight className="w-4 h-4 mx-auto mt-2 group-hover:translate-x-1 transition-smooth" />
+              </div>
+            </Link>
+            <Link to="/case-studies" className="group">
+              <div className="bg-white rounded-xl p-6 shadow-card hover:shadow-elegant transition-smooth">
+                <h4 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-smooth">
+                  Case Studies
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Real results for local businesses
+                </p>
+                <ArrowRight className="w-4 h-4 mx-auto mt-2 group-hover:translate-x-1 transition-smooth" />
+              </div>
+            </Link>
+            <Link to="/blog" className="group">
+              <div className="bg-white rounded-xl p-6 shadow-card hover:shadow-elegant transition-smooth">
+                <h4 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-smooth">
+                  Marketing Blog
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Tips, guides & industry insights
+                </p>
+                <ArrowRight className="w-4 h-4 mx-auto mt-2 group-hover:translate-x-1 transition-smooth" />
+              </div>
+            </Link>
           </div>
         </div>
       </div>
