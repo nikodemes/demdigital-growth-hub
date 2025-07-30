@@ -2,11 +2,17 @@ import { CheckCircle, Search, TrendingUp, Target, ArrowRight, Users, Award } fro
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ContactForm";
+import { useEffect } from "react";
 import TopBar from "@/components/TopBar";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 const FreeSEOAudit = () => {
+  // Ensure page starts at top when loaded
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen">
       <TopBar />
