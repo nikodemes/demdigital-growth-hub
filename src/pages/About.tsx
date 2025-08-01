@@ -15,13 +15,13 @@ const About = () => {
 
   const team = [
     {
-      name: "David Miller",
+      name: "Nikodem Szlagor",
       role: "Founder & Digital Marketing Director",
-      bio: "15+ years experience in digital marketing across Central Scotland. Specializes in local SEO and Google Ads management.",
+      bio: "8+ years experience in digital marketing across Central Scotland. Specializes in local SEO and Google Ads management.",
       expertise: ["SEO Strategy", "Google Ads", "Local Marketing"]
     },
     {
-      name: "Sarah Thompson", 
+      name: "Marek Lubinski", 
       role: "SEO Specialist",
       bio: "Expert in technical SEO and local search optimization for Motherwell, Glasgow, and Central Scotland businesses.",
       expertise: ["Technical SEO", "Local SEO", "Content Strategy"]
