@@ -37,7 +37,7 @@ const SEOScanner = () => {
       }
 
       const { data, error } = await supabase.functions.invoke('seo-scan', {
-        body: { url }
+        body: { url, email }
       });
       
       if (error) {
