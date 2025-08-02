@@ -77,7 +77,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Business Growth Animation */}
       <div className="marketing-animation">
         <div className="marketing-icons" title="Social Media Growth"></div>
