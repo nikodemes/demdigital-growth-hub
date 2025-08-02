@@ -78,8 +78,21 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Floating background elements */}
-      <div className="floating-elements"></div>
+      {/* Marketing Growth Animation */}
+      <div className="marketing-animation">
+        <div className="marketing-icons"></div>
+        <div className="marketing-icons"></div>
+        <div className="marketing-icons"></div>
+        <div className="marketing-icons"></div>
+        <div className="marketing-icons"></div>
+        <div className="marketing-icons"></div>
+        <div className="marketing-icons"></div>
+        <div className="marketing-icons"></div>
+        <div className="marketing-icons"></div>
+        <div className="growth-stats">+250% Social Media</div>
+        <div className="growth-stats">+180% Website Traffic</div>
+        <div className="growth-stats">+320% More Calls</div>
+      </div>
       
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
@@ -99,7 +112,7 @@ const HeroSection = () => {
                 </span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed text-animate text-animate-delay-1 max-w-2xl">
-                We deliver globally marketing solutions smoothly, without delay, saving your time and money with an efficient process.
+                Get a FREE custom marketing strategy for your business in Motherwell, Glasgow, or anywhere in Central Scotland.
               </p>
             </div>
             
