@@ -5,21 +5,21 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-card hover:shadow-elegant",
+        default: "bg-primary text-primary-foreground hover:bg-primary-dark rounded-full shadow-button hover:shadow-elegant transform hover:-translate-y-0.5 transition-bounce font-medium",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-full",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-full hover:shadow-card",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+          "bg-secondary text-secondary-foreground hover:bg-muted rounded-full hover:shadow-card",
+        ghost: "hover:bg-accent hover:text-accent-foreground rounded-full",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "bg-gradient-primary text-primary-foreground hover:shadow-glow transform hover:-translate-y-0.5 transition-bounce font-semibold",
-        hero: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-elegant hover:shadow-glow transform hover:-translate-y-1 transition-bounce font-bold text-lg",
+        cta: "bg-gradient-primary text-primary-foreground hover:shadow-button transform hover:-translate-y-1 transition-bounce font-semibold rounded-full px-8",
+        hero: "bg-foreground text-background hover:bg-foreground/90 shadow-elegant hover:shadow-button transform hover:-translate-y-1 transition-bounce font-bold text-lg rounded-full px-8",
       },
       size: {
         default: "h-10 px-4 py-2",
