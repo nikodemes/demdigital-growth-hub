@@ -78,20 +78,20 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Marketing Growth Animation */}
+      {/* Business Growth Animation */}
       <div className="marketing-animation">
-        <div className="marketing-icons" title="📱 Social Media Growth"></div>
-        <div className="marketing-icons" title="🌐 Website Traffic"></div>
-        <div className="marketing-icons" title="📞 More Calls"></div>
-        <div className="marketing-icons" title="⭐ Customer Reviews"></div>
-        <div className="marketing-icons" title="🎯 Lead Generation"></div>
-        <div className="marketing-icons" title="💰 Sales Growth"></div>
-        <div className="marketing-icons" title="📊 Analytics"></div>
-        <div className="marketing-icons" title="🚀 SEO Rankings"></div>
-        <div className="marketing-icons" title="📈 Conversions"></div>
+        <div className="marketing-icons" title="Social Media Growth"></div>
+        <div className="marketing-icons" title="Lead Generation"></div>
+        <div className="marketing-icons" title="Phone Calls"></div>
+        <div className="marketing-icons" title="Sales Revenue"></div>
+        <div className="marketing-icons" title="Website Traffic"></div>
+        <div className="marketing-icons" title="Customer Reviews"></div>
+        <div className="marketing-icons" title="Analytics & Insights"></div>
+        <div className="marketing-icons" title="Target Marketing"></div>
+        <div className="marketing-icons" title="Business Growth"></div>
         <div className="growth-stats">+250% Social Media Engagement</div>
-        <div className="growth-stats">+180% Website Traffic</div>
-        <div className="growth-stats">+320% More Phone Calls</div>
+        <div className="growth-stats">+180% Website Visitors</div>
+        <div className="growth-stats">+320% Phone Calls Daily</div>
       </div>
       
       {/* Content */}
