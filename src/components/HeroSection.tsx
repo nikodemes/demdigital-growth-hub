@@ -80,22 +80,22 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Marketing Growth Animation */}
       <div className="marketing-animation">
-        <div className="marketing-icons"></div>
-        <div className="marketing-icons"></div>
-        <div className="marketing-icons"></div>
-        <div className="marketing-icons"></div>
-        <div className="marketing-icons"></div>
-        <div className="marketing-icons"></div>
-        <div className="marketing-icons"></div>
-        <div className="marketing-icons"></div>
-        <div className="marketing-icons"></div>
-        <div className="growth-stats">+250% Social Media</div>
+        <div className="marketing-icons" title="📱 Social Media Growth"></div>
+        <div className="marketing-icons" title="🌐 Website Traffic"></div>
+        <div className="marketing-icons" title="📞 More Calls"></div>
+        <div className="marketing-icons" title="⭐ Customer Reviews"></div>
+        <div className="marketing-icons" title="🎯 Lead Generation"></div>
+        <div className="marketing-icons" title="💰 Sales Growth"></div>
+        <div className="marketing-icons" title="📊 Analytics"></div>
+        <div className="marketing-icons" title="🚀 SEO Rankings"></div>
+        <div className="marketing-icons" title="📈 Conversions"></div>
+        <div className="growth-stats">+250% Social Media Engagement</div>
         <div className="growth-stats">+180% Website Traffic</div>
-        <div className="growth-stats">+320% More Calls</div>
+        <div className="growth-stats">+320% More Phone Calls</div>
       </div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
+      <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="space-y-10">
