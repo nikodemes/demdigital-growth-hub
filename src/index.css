@@ -2,56 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* DEM Digital - Professional Marketing Agency Design System */
+/* Wavespace-inspired Design System */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    --foreground: 0 0% 7%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover-foreground: 0 0% 7%;
 
-    /* Scottish Highland inspired color scheme */
-    --primary: 220 70% 45%; /* Deep Highland blue */
+    /* Clean minimal color scheme inspired by wavespace */
+    --primary: 0 0% 7%; /* Pure black/dark */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 210 60% 55%; /* Lighter loch blue */
-    --primary-dark: 215 80% 35%; /* Deep Scottish navy */
+    --primary-light: 0 0% 15%;
+    --primary-dark: 0 0% 0%;
 
-    --secondary: 220 25% 95%;
-    --secondary-foreground: 220 15% 15%;
+    --secondary: 0 0% 97%;
+    --secondary-foreground: 0 0% 7%;
 
-    --muted: 220 15% 96%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 140 45% 55%; /* Scottish Highland green */
+    --accent: 258 100% 68%; /* Purple accent like wavespace */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 95%;
-    --ring: 245 75% 52%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: 258 100% 68%;
 
-    /* Scottish Highland gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    --gradient-hero: linear-gradient(135deg, hsl(215 80% 35%) 0%, hsl(220 70% 45%) 40%, hsl(140 45% 55%) 100%);
+    /* Minimal gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-hero: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--secondary)));
     
-    /* Professional shadows */
-    --shadow-elegant: 0 10px 40px -10px hsl(var(--primary) / 0.2);
-    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    /* Subtle shadows */
+    --shadow-elegant: 0 25px 50px -12px hsl(0 0% 0% / 0.1);
+    --shadow-card: 0 10px 30px -8px hsl(0 0% 0% / 0.08);
+    --shadow-glow: 0 0 0 1px hsl(var(--accent) / 0.1);
     
     /* Smooth animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    --radius: 0.5rem;
+    --radius: 12px;
 
     --sidebar-background: 0 0% 98%;
 
@@ -115,6 +115,92 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .text-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: text-reveal 0.8s ease-out forwards;
+  }
+
+  .text-animate-delay-1 {
+    animation-delay: 0.2s;
+  }
+
+  .text-animate-delay-2 {
+    animation-delay: 0.4s;
+  }
+
+  .text-animate-delay-3 {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes text-reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .word-cycle {
+    display: inline-block;
+    animation: word-cycle 3s ease-in-out infinite;
+  }
+
+  @keyframes word-cycle {
+    0%, 33% { opacity: 1; transform: translateY(0); }
+    50% { opacity: 0; transform: translateY(-10px); }
+    67%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .floating-elements::before,
+  .floating-elements::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: hsl(var(--accent) / 0.03);
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+  }
+
+  .floating-elements::before {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .floating-elements::after {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: -10s;
+  }
+
+  @keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -30px) rotate(120deg); }
+    66% { transform: translate(-20px, 20px) rotate(240deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+  }
+
+  .performance-optimized {
+    will-change: transform;
+    transform: translateZ(0);
   }
 }
