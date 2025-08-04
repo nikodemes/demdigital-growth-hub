@@ -95,12 +95,12 @@ const HeroSection = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-10">
-            <div className="space-y-6">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-animate">
+          <div className="space-y-6 lg:space-y-10">
+            <div className="space-y-4 lg:space-y-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-animate">
                 Digital marketing agency for{" "}
                 <span className="relative inline-block">
                   <span 
@@ -111,21 +111,21 @@ const HeroSection = () => {
                   </span>
                 </span>
               </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed text-animate text-animate-delay-1 max-w-2xl">
+              <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed text-animate text-animate-delay-1 max-w-2xl">
                 Get a FREE custom marketing strategy for your business in Motherwell, Glasgow, or anywhere in Central Scotland.
               </p>
             </div>
             
-            <div className="flex flex-wrap gap-3 text-animate text-animate-delay-2">
+            <div className="flex flex-wrap gap-2 sm:gap-3 text-animate text-animate-delay-2">
               {[
                 "SEO Optimization",
                 "Google Ads",
                 "Social Media",
                 "Web Development"
               ].map((service, index) => (
-                <div key={index} className="flex items-center gap-2 bg-secondary rounded-full px-5 py-2 border border-border/50">
+                <div key={index} className="flex items-center gap-2 bg-secondary rounded-full px-3 sm:px-5 py-2 border border-border/50">
                   <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
-                  <span className="text-sm font-medium">{service}</span>
+                  <span className="text-xs sm:text-sm font-medium">{service}</span>
                 </div>
               ))}
             </div>
@@ -144,12 +144,12 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - Lead Form */}
-          <div className="bg-card/80 backdrop-blur-xl rounded-3xl p-8 shadow-elegant border border-border/20 text-animate text-animate-delay-2">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-foreground mb-3">
+          <div className="bg-card/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-elegant border border-border/20 text-animate text-animate-delay-2">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
                 Get Your Free Marketing Strategy
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-sm sm:text-base text-muted-foreground">
                 No obligation. Tailored specifically for your business.
               </p>
             </div>
@@ -161,7 +161,7 @@ const HeroSection = () => {
                   placeholder="Your Full Name"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="h-14 text-base bg-background/50 border-border/30 focus:border-accent rounded-2xl"
+                  className="h-12 sm:h-14 text-sm sm:text-base bg-background/50 border-border/30 focus:border-accent rounded-xl sm:rounded-2xl"
                   required
                 />
               </div>
@@ -171,7 +171,7 @@ const HeroSection = () => {
                   placeholder="Business Email Address"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="h-14 text-base bg-background/50 border-border/30 focus:border-accent rounded-2xl"
+                  className="h-12 sm:h-14 text-sm sm:text-base bg-background/50 border-border/30 focus:border-accent rounded-xl sm:rounded-2xl"
                   required
                 />
               </div>
@@ -181,7 +181,7 @@ const HeroSection = () => {
                   placeholder="Company Name"
                   value={formData.company}
                   onChange={(e) => setFormData({...formData, company: e.target.value})}
-                  className="h-14 text-base bg-background/50 border-border/30 focus:border-accent rounded-2xl"
+                  className="h-12 sm:h-14 text-sm sm:text-base bg-background/50 border-border/30 focus:border-accent rounded-xl sm:rounded-2xl"
                   required
                 />
               </div>
@@ -189,7 +189,7 @@ const HeroSection = () => {
                 type="submit" 
                 variant="hero" 
                 size="lg" 
-                className="w-full h-14 text-base rounded-2xl"
+                className="w-full h-12 sm:h-14 text-sm sm:text-base rounded-xl sm:rounded-2xl"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Submitting..." : "Book a strategy call →"}
