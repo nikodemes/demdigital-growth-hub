@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { NewsletterSignup } from "./NewsletterSignup";
 
@@ -22,15 +22,22 @@ const Footer = () => {
             </div>
             
             <div className="flex gap-4">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-smooth cursor-pointer">
+              <a 
+                href="https://www.facebook.com/demdigitalglobal" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-smooth"
+              >
                 <Facebook className="w-5 h-5" />
-              </div>
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-smooth cursor-pointer">
-                <Linkedin className="w-5 h-5" />
-              </div>
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-smooth cursor-pointer">
-                <Twitter className="w-5 h-5" />
-              </div>
+              </a>
+              <a 
+                href="https://www.instagram.com/demdigitalglobal" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-smooth"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
