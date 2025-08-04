@@ -7,7 +7,7 @@ const TopBar = () => {
         <div className="flex justify-between items-center text-sm">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-primary" />
+              <Phone className="w-4 h-4 text-accent" />
               <a href="tel:+447365343449" className="hover:text-primary transition-smooth">
                 +44 7365 343449
               </a>
