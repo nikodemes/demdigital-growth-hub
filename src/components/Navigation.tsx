@@ -27,10 +27,11 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png" 
               alt="DEM Digital - Digital Marketing Agency Motherwell" 
-              className="h-12 w-auto sm:h-16 lg:h-20"
+              className="h-8 w-auto sm:h-12 lg:h-16"
               width="80"
               height="80"
               loading="eager"
+              decoding="async"
             />
           </Link>
 
