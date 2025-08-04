@@ -94,10 +94,10 @@ const ReviewsSection = () => {
   }, [displayReviews]);
 
   return (
-    <section className="py-20 bg-gradient-subtle">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-subtle" aria-labelledby="reviews-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 id="reviews-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
             What Our <span className="text-primary">Clients Say</span>
           </h2>
           <p className="text-xl text-muted-foreground">

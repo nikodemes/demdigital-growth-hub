@@ -1,76 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Critical performance optimizations -->
-    <script>
-      // Preload critical resources
-      if ('connection' in navigator) {
-        if (navigator.connection.effectiveType === '4g') {
-          const preloadLink = document.createElement('link');
-          preloadLink.rel = 'preload';
-          preloadLink.href = '/assets/index-CdckPalr.js';
-          preloadLink.as = 'script';
-          document.head.appendChild(preloadLink);
-        }
-      }
-    </script>
-    <!-- Optimized Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT6EY6RJE7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-MT6EY6RJE7', { 
-        send_page_view: false,
-        transport_type: 'beacon'
-      });
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Critical Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://pjxlkyopfborhrxqvkws.supabase.co">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
-    <title>Digital Marketing Agency Motherwell | DEM Digital</title>
-    <link rel="icon" href="/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png" type="image/png">
-    <meta name="description" content="Expert digital marketing agency in Motherwell. Specializing in SEO, Google Ads & web design for Central Scotland businesses." />
-    <meta name="author" content="DEM Digital" />
-    <link rel="canonical" href="https://demdigital.lovable.app/" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://cdn.gpteng.co">
     
-    <!-- Optimized Google Tag Manager -->
-    <script>
-      (function(w,d,s,l,i){
-        if (w.gtmLoaded) return;
-        w.gtmLoaded = true;
-        w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.defer=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-5G37SHZZ');
-    </script>
-
+    <!-- Optimized Font Loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+    
+    <!-- SEO Meta Tags -->
+    <title>Digital Marketing Agency Motherwell | DEM Digital - SEO, PPC & Web Design</title>
+    <meta name="description" content="Leading digital marketing agency in Motherwell, Glasgow & Central Scotland. Expert SEO optimization, Google Ads management, Meta advertising & professional web design. Free consultation available. ☎️ +44 7365 343449" />
+    <meta name="keywords" content="digital marketing agency Motherwell, SEO Glasgow, Google Ads Scotland, web design Central Scotland, PPC management, Meta advertising, digital marketing consultant" />
+    <meta name="author" content="DEM Digital" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://preview--demdigital-growth-hub.lovable.app/" />
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" href="/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png">
+    
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Digital Marketing Agency Motherwell | DEM Digital" />
-    <meta property="og:description" content="Expert digital marketing agency in Motherwell. Specializing in SEO, Google Ads & web design for Central Scotland businesses." />
+    <meta property="og:description" content="Leading digital marketing agency in Motherwell, Glasgow & Central Scotland. Expert SEO optimization, Google Ads management & web design. Free consultation available." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://demdigital.lovable.app/" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:url" content="https://preview--demdigital-growth-hub.lovable.app/" />
+    <meta property="og:image" content="https://preview--demdigital-growth-hub.lovable.app/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png" />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="DEM Digital" />
 
+    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@demdigital" />
     <meta name="twitter:title" content="Digital Marketing Agency Motherwell | DEM Digital" />
-    <meta name="twitter:description" content="Expert digital marketing agency in Motherwell. Specializing in SEO, Google Ads & web design for Central Scotland businesses." />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:description" content="Leading digital marketing agency in Motherwell, Glasgow & Central Scotland. Expert SEO optimization, Google Ads management & web design." />
+    <meta name="twitter:image" content="https://preview--demdigital-growth-hub.lovable.app/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png" />
 
-    <!-- Structured Data -->
+    <!-- Enhanced Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "DEM Digital",
-      "description": "Expert digital marketing agency serving Motherwell, Glasgow & Central Scotland. Specializing in SEO optimization, Google Ads management, Meta ads & website development.",
-      "url": "https://demdigital.lovable.app/",
+      "description": "Leading digital marketing agency serving Motherwell, Glasgow & Central Scotland. Specializing in SEO optimization, Google Ads management, Meta advertising & professional website development.",
+      "url": "https://preview--demdigital-growth-hub.lovable.app/",
       "telephone": "+44 7365 343449",
+      "email": "hello@demdigital.co.uk",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Motherwell",
@@ -78,39 +64,101 @@
         "addressCountry": "GB"
       },
       "areaServed": [
-        {
-          "@type": "Place",
-          "name": "Motherwell"
-        },
-        {
-          "@type": "Place", 
-          "name": "Glasgow"
-        },
-        {
-          "@type": "Place",
-          "name": "Central Scotland"
-        }
+        { "@type": "Place", "name": "Motherwell" },
+        { "@type": "Place", "name": "Glasgow" },
+        { "@type": "Place", "name": "Central Scotland" },
+        { "@type": "Place", "name": "Hamilton" },
+        { "@type": "Place", "name": "East Kilbride" },
+        { "@type": "Place", "name": "Wishaw" }
       ],
       "serviceType": [
         "SEO Optimization",
         "Google Ads Management", 
         "Meta Ads Campaigns",
         "Website Development",
-        "Digital Marketing"
+        "Digital Marketing Consulting",
+        "PPC Management",
+        "Social Media Marketing"
       ],
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
-        "reviewCount": "47"
-      }
+        "reviewCount": "47",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "foundingDate": "2020",
+      "logo": "https://preview--demdigital-growth-hub.lovable.app/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png",
+      "sameAs": [
+        "https://www.facebook.com/demdigitalglobal",
+        "https://www.instagram.com/demdigitalglobal"
+      ]
     }
     </script>
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "DEM Digital",
+      "image": "https://preview--demdigital-growth-hub.lovable.app/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png",
+      "telephone": "+44 7365 343449",
+      "email": "hello@demdigital.co.uk",
+      "url": "https://preview--demdigital-growth-hub.lovable.app/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Motherwell",
+        "addressRegion": "Scotland",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "55.7909",
+        "longitude": "-3.9856"
+      },
+      "openingHours": ["Mo-Fr 09:00-17:00"],
+      "priceRange": "££"
+    }
+    </script>
+
+    <!-- Performance Optimization -->
+    <script>
+      // Critical resource preloading
+      if ('connection' in navigator && navigator.connection.effectiveType === '4g') {
+        const criticalResources = ['/assets/index-CdckPalr.js'];
+        criticalResources.forEach(href => {
+          const link = document.createElement('link');
+          link.rel = 'preload';
+          link.href = href;
+          link.as = 'script';
+          document.head.appendChild(link);
+        });
+      }
+    </script>
+
+    <!-- Optimized Analytics -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MT6EY6RJE7', { 
+        send_page_view: false,
+        transport_type: 'beacon',
+        custom_map: {'dimension1': 'business_type'}
+      });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT6EY6RJE7"></script>
   </head>
 
   <body>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded z-50">Skip to main content</a>
+    
     <!-- Optimized Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5G37SHZZ"
-    height="0" width="0" style="display:none;visibility:hidden" loading="lazy"></iframe></noscript>
+    height="0" width="0" style="display:none;visibility:hidden" loading="lazy" title="Google Tag Manager"></iframe></noscript>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

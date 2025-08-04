@@ -77,7 +77,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background" aria-labelledby="hero-heading">
       {/* Business Growth Animation */}
       <div className="marketing-animation">
         <div className="marketing-icons" title="Social Media Growth"></div>
@@ -100,7 +100,7 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-6 lg:space-y-10">
             <div className="space-y-4 lg:space-y-6">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-animate">
+              <h1 id="hero-heading" className="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-animate">
                 Digital marketing agency for{" "}
                 <span className="relative inline-block">
                   <span 
@@ -154,36 +154,48 @@ const HeroSection = () => {
               </p>
             </div>
             
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5" role="form" aria-label="Free marketing strategy request form">
               <div>
+                <label htmlFor="hero-name" className="sr-only">Your Full Name</label>
                 <Input
+                  id="hero-name"
                   type="text"
                   placeholder="Your Full Name"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   className="h-12 sm:h-14 text-sm sm:text-base bg-background/50 border-border/30 focus:border-accent rounded-xl sm:rounded-2xl"
                   required
+                  aria-describedby="hero-name-desc"
                 />
+                <span id="hero-name-desc" className="sr-only">Enter your full name for contact purposes</span>
               </div>
               <div>
+                <label htmlFor="hero-email" className="sr-only">Business Email Address</label>
                 <Input
+                  id="hero-email"
                   type="email"
                   placeholder="Business Email Address"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   className="h-12 sm:h-14 text-sm sm:text-base bg-background/50 border-border/30 focus:border-accent rounded-xl sm:rounded-2xl"
                   required
+                  aria-describedby="hero-email-desc"
                 />
+                <span id="hero-email-desc" className="sr-only">Enter your business email address</span>
               </div>
               <div>
+                <label htmlFor="hero-company" className="sr-only">Company Name</label>
                 <Input
+                  id="hero-company"
                   type="text"
                   placeholder="Company Name"
                   value={formData.company}
                   onChange={(e) => setFormData({...formData, company: e.target.value})}
                   className="h-12 sm:h-14 text-sm sm:text-base bg-background/50 border-border/30 focus:border-accent rounded-xl sm:rounded-2xl"
                   required
+                  aria-describedby="hero-company-desc"
                 />
+                <span id="hero-company-desc" className="sr-only">Enter your company or business name</span>
               </div>
               <Button 
                 type="submit" 
@@ -191,9 +203,11 @@ const HeroSection = () => {
                 size="lg" 
                 className="w-full h-12 sm:h-14 text-sm sm:text-base rounded-xl sm:rounded-2xl"
                 disabled={isSubmitting}
+                aria-describedby="hero-submit-desc"
               >
                 {isSubmitting ? "Submitting..." : "Book a strategy call →"}
               </Button>
+              <span id="hero-submit-desc" className="sr-only">Submit form to request your free marketing strategy consultation</span>
             </form>
             
             <p className="text-xs text-muted-foreground text-center mt-6">

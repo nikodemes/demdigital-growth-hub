@@ -12,3 +12,29 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://preview--demdigital-growth-hub.lovable.app/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block access to admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /api/
+
+# Allow important pages
+Allow: /services
+Allow: /about
+Allow: /contact
+Allow: /case-studies
+Allow: /blog
+Allow: /seo-scanner
+Allow: /free-seo-audit
+
+# Block duplicate content
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?source=*
