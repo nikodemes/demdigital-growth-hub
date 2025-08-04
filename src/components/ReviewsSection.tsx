@@ -188,12 +188,14 @@ const ReviewsSection = () => {
               <button 
                 onClick={() => setCurrentReview((prev) => prev === 0 ? displayReviews.length - 1 : prev - 1)}
                 className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-light transition-smooth z-10"
+                aria-label="Previous review"
               >
                 ←
               </button>
               <button 
                 onClick={() => setCurrentReview((prev) => (prev + 1) % displayReviews.length)}
                 className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-light transition-smooth z-10"
+                aria-label="Next review"
               >
                 →
               </button>
@@ -234,10 +236,11 @@ const ReviewsSection = () => {
                 {displayReviews.map((_, index) => (
                   <button
                     key={index}
-                    className={`w-2 h-2 rounded-full transition-smooth ${
+                    className={`w-3 h-3 rounded-full transition-smooth min-h-[44px] min-w-[44px] flex items-center justify-center ${
                       index === currentReview ? 'bg-primary' : 'bg-gray-300'
                     }`}
                     onClick={() => setCurrentReview(index)}
+                    aria-label={`Go to review ${index + 1}`}
                   />
                 ))}
               </div>

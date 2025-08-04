@@ -111,7 +111,7 @@ const HeroSection = () => {
                   </span>
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed text-animate text-animate-delay-1 max-w-2xl">
+              <p className="text-lg sm:text-xl lg:text-2xl text-foreground font-medium leading-relaxed text-animate text-animate-delay-1 max-w-2xl bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-sm">
                 Get a FREE custom marketing strategy for your business in Motherwell, Glasgow, or anywhere in Central Scotland.
               </p>
             </div>

@@ -8,7 +8,7 @@ const TopBar = () => {
           <div className="flex items-center gap-2 sm:gap-4">
             <div className="flex items-center gap-1 sm:gap-2">
               <Phone className="w-3 h-3 sm:w-4 sm:h-4 text-accent" />
-              <a href="tel:+447365343449" className="hover:text-accent transition-smooth">
+              <a href="tel:+447365343449" className="hover:text-accent transition-smooth py-1 px-2 min-h-[44px] flex items-center">
                 +44 7365 343449
               </a>
             </div>

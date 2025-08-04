@@ -23,11 +23,14 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0">
+          <Link to="/" className="flex-shrink-0 py-2">
             <img 
               src="/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png" 
-              alt="DEM Digital Logo" 
-              className="h-20 w-auto"
+              alt="DEM Digital - Digital Marketing Agency Motherwell" 
+              className="h-12 w-auto sm:h-16 lg:h-20"
+              width="80"
+              height="80"
+              loading="eager"
             />
           </Link>
 
@@ -65,6 +68,8 @@ const Navigation = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

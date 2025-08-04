@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Critical performance optimizations -->
+    <script>
+      // Preload critical resources
+      if ('connection' in navigator) {
+        if (navigator.connection.effectiveType === '4g') {
+          const preloadLink = document.createElement('link');
+          preloadLink.rel = 'preload';
+          preloadLink.href = '/assets/index-CdckPalr.js';
+          preloadLink.as = 'script';
+          document.head.appendChild(preloadLink);
+        }
+      }
+    </script>
+    <!-- Optimized Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT6EY6RJE7"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-MT6EY6RJE7');
+      gtag('config', 'G-MT6EY6RJE7', { 
+        send_page_view: false,
+        transport_type: 'beacon'
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://pjxlkyopfborhrxqvkws.supabase.co">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     <title>Digital Marketing Agency Motherwell | DEM Digital</title>
     <link rel="icon" href="/lovable-uploads/017285b9-f47a-47f7-93c2-39c15431e4e3.png" type="image/png">
     <meta name="description" content="Expert digital marketing agency in Motherwell. Specializing in SEO, Google Ads & web design for Central Scotland businesses." />
     <meta name="author" content="DEM Digital" />
     <link rel="canonical" href="https://demdigital.lovable.app/" />
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5G37SHZZ');</script>
-    <!-- End Google Tag Manager -->
+    <!-- Optimized Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){
+        if (w.gtmLoaded) return;
+        w.gtmLoaded = true;
+        w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.defer=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5G37SHZZ');
+    </script>
 
     <meta property="og:title" content="Digital Marketing Agency Motherwell | DEM Digital" />
     <meta property="og:description" content="Expert digital marketing agency in Motherwell. Specializing in SEO, Google Ads & web design for Central Scotland businesses." />
@@ -87,10 +108,9 @@
   </head>
 
   <body>
-    <!-- Google Tag Manager (noscript) -->
+    <!-- Optimized Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5G37SHZZ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    height="0" width="0" style="display:none;visibility:hidden" loading="lazy"></iframe></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

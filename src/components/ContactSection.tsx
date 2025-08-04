@@ -156,7 +156,9 @@ const ContactSection = () => {
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
                 />
+                <label htmlFor="service-select" className="sr-only">Select Service</label>
                 <select 
+                  id="service-select"
                   className="h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   value={formData.service}
                   onChange={(e) => setFormData({...formData, service: e.target.value})}

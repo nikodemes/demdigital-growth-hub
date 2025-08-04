@@ -27,6 +27,7 @@ const Footer = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-smooth"
+                aria-label="Visit our Facebook page"
               >
                 <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
@@ -35,6 +36,7 @@ const Footer = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary-light transition-smooth"
+                aria-label="Visit our Instagram page"
               >
                 <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
