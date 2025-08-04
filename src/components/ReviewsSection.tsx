@@ -80,7 +80,7 @@ const ReviewsSection = () => {
 
   // Use Google reviews if available, fallback to static reviews
   const displayReviews = googleReviews?.reviews || reviews;
-  const displayRating = googleReviews?.rating || 4.8;
+  const displayRating = googleReviews?.rating || 4.9;
   const displayReviewCount = googleReviews?.totalReviews || 47;
   const displayBusinessName = googleReviews?.businessName || "DEM Digital";
 
@@ -128,7 +128,7 @@ const ReviewsSection = () => {
                   <div className="flex items-center gap-2 mb-2">
                     <div className="flex">
                       {[1, 2, 3, 4, 5].map((star) => {
-                        const currentRating = 4.8; // Fixed rating for now
+                        const currentRating = 4.9; // Fixed rating for now
                         if (star <= Math.floor(currentRating)) {
                           return <Star key={star} className="w-5 h-5 fill-yellow-400 text-yellow-400" />;
                         } else if (star === Math.ceil(currentRating) && currentRating % 1 !== 0) {
@@ -146,7 +146,7 @@ const ReviewsSection = () => {
                       })}
                     </div>
                     <span className="text-lg font-semibold text-foreground">
-                      4.8
+                      4.9
                     </span>
                   </div>
                   

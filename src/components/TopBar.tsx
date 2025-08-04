@@ -17,7 +17,7 @@ const TopBar = () => {
           <div className="flex items-center gap-1 sm:gap-2">
             <div className="flex">
               {[1, 2, 3, 4, 5].map((star) => {
-                const currentRating = 4.8;
+                const currentRating = 4.9;
                 if (star <= Math.floor(currentRating)) {
                   return <Star key={star} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />;
                 } else if (star === Math.ceil(currentRating) && currentRating % 1 !== 0) {
@@ -34,7 +34,7 @@ const TopBar = () => {
                 }
               })}
             </div>
-            <span className="text-xs sm:text-sm text-white font-medium">4.8</span>
+            <span className="text-xs sm:text-sm text-white font-medium">4.9</span>
           </div>
         </div>
       </div>
