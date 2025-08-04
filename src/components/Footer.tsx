@@ -72,19 +72,19 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-6">Get In Touch</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-primary" />
+                  <Phone className="w-4 h-4 text-accent" />
                   <a href="tel:+447365343449" className="text-white/80 hover:text-white transition-smooth">
                     +44 7365 343449
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-primary" />
+                  <Mail className="w-4 h-4 text-accent" />
                   <a href="mailto:hello@demdigital.co.uk" className="text-white/80 hover:text-white transition-smooth">
                     hello@demdigital.co.uk
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-primary" />
+                  <MapPin className="w-4 h-4 text-accent" />
                   <span className="text-white/80">Motherwell, Central Scotland</span>
                 </div>
               </div>
